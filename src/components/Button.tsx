@@ -7,7 +7,7 @@ export type ButtonProps = {
   disabled?: boolean,
 }
 
-const Button = styled.button<ButtonProps>`
+export const Button = styled.button<ButtonProps>`
   background-color: ${props => {
     if (props.variant === 'error') return 'none';
     if (props.variant === 'disabled') return '#D0D1E1';
@@ -36,5 +36,3 @@ const Button = styled.button<ButtonProps>`
     cursor: not-allowed;
   }
 `;
-
-export default Button;
