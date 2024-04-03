@@ -28,6 +28,7 @@ export const Button = styled.button<ButtonProps>`
 
   &:hover {
     background-color: ${props => props.variant === 'error' ? '#F04C4C' : '#322951'};
+    border: ${props => props.variant === 'error' ? '1px solid #F04C4C' : 'none'};
     color: ${props => props.variant === 'error' && '#fff'};
   }
 
