@@ -7,7 +7,7 @@ export type ButtonProps = {
   disabled?: boolean,
 }
 
-const Button = styled.button<ButtonProps>`
+export const Button = styled.button<ButtonProps>`
   background-color: ${props => {
     if (props.variant === 'error') return 'none';
     if (props.variant === 'disabled') return '#D0D1E1';
@@ -28,6 +28,7 @@ const Button = styled.button<ButtonProps>`
 
   &:hover {
     background-color: ${props => props.variant === 'error' ? '#F04C4C' : '#322951'};
+    border: ${props => props.variant === 'error' ? '1px solid #F04C4C' : 'none'};
     color: ${props => props.variant === 'error' && '#fff'};
   }
 
@@ -36,5 +37,3 @@ const Button = styled.button<ButtonProps>`
     cursor: not-allowed;
   }
 `;
-
-export default Button;

@@ -1,21 +1,28 @@
 const path = require('path');
 
+const rulesForTS = {
+  test: /\.tsx?$/,
+  use: 'ts-loader',
+  exclude: /node_modules/,
+}
+
+const rules = [ rulesForTS ]
+
 module.exports = {
   entry: './src/index.ts',
-  module: {
-    rules: [
-      {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-      },
-    ],
+  output: {
+    path: path.resolve(__dirname, 'build'),
+    filename: 'index.js',
+    library: {
+      type: 'module',
+    }
   },
+  experiments: {
+    outputModule: true,
+  },
+  module: { rules },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'build'),
-  },
+  externals: ['react', 'react-dom'],
 };
