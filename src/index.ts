@@ -1,1 +1,1 @@
-export * from './sayHi';
+export * from './components/Button';
