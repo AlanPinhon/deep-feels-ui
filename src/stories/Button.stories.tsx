@@ -11,7 +11,7 @@ type Story = StoryObj<ButtonProps>;
 
 export const Primary: Story = {
   args: {
-    children: 'Button',
+    children: 'Primary',
     onClick: () => alert('Hola'),
     variant: 'primary'
   }
@@ -19,7 +19,7 @@ export const Primary: Story = {
 
 export const Error: Story = {
   args: {
-    children: 'Button',
+    children: 'Error',
     onClick: () => alert('Error'),
     variant: 'error'
   }
@@ -27,8 +27,16 @@ export const Error: Story = {
 
 export const Disabled: Story = {
   args: {
-    children: 'Button',
+    children: 'Disabled',
+    variant: 'primary',
     disabled: true,
-    variant: 'disabled'
+  }
+}
+
+export const Feelings: Story = {
+  args: {
+    children: 'Feelings',
+    onClick: () => alert('Go to main screen...'),
+    variant: 'feelings',
   }
 }

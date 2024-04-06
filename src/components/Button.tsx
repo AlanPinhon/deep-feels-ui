@@ -1,39 +1,68 @@
-import {styled} from 'styled-components';
+import React, { useContext } from 'react';
+import { ThemeContext, ThemeProvider } from '../theme/ThemeContext';
+import styled from 'styled-components';
 
 export type ButtonProps = {
-  children: string,
+  children: React.ReactNode,
   onClick: () => void,
   variant: string,
   disabled?: boolean,
 }
 
-export const Button = styled.button<ButtonProps>`
+export const StyledButton = styled.button<ButtonProps>`
   background-color: ${props => {
-    if (props.variant === 'error') return 'none';
-    if (props.variant === 'disabled') return '#D0D1E1';
-    return '#534588';
+    if(props.variant === 'primary') return props.theme.theme.button.primary.background;
+    if(props.variant === 'error') return props.theme.theme.button.danger.background;
+    if(props.variant === 'feelings') return props.theme.theme.button.feelings.background;
   }};
   color: ${props => {
-    if (props.variant === 'error') return '#F04C4C';
-    return '#FFF';
+    if(props.variant === 'primary') return props.theme.theme.button.primary.text_color;
+    if(props.variant === 'error') return props.theme.theme.button.danger.text_color;
+    if(props.variant === 'feelings') return props.theme.theme.button.feelings.text_color;
   }};
-
+  border: ${props => {
+    if(props.variant === 'error') return `1px solid ${props.theme.theme.button.danger.border_color}`;
+    return "none"
+  }};
   font-size: 17px;
   font-weight: bold;
   border-radius: 8px;
   padding: .75rem 1rem;
-  border: ${props => props.variant === 'error' ? '1px solid #F04C4C' : 'none'};
   cursor: pointer;
   transition: .15s ease-in-out;
 
   &:hover {
-    background-color: ${props => props.variant === 'error' ? '#F04C4C' : '#322951'};
-    border: ${props => props.variant === 'error' ? '1px solid #F04C4C' : 'none'};
-    color: ${props => props.variant === 'error' && '#fff'};
+    background-color: ${props => {
+      if(props.variant === 'primary') return props.theme.theme.button.primary.hover;
+      if(props.variant === 'error') return props.theme.theme.button.danger.hover;
+      if(props.variant === 'feelings') return props.theme.theme.button.feelings.hover;
+    }};
+    color: ${props => {
+      if(props.variant === 'error') return props.theme.theme.button.danger.text_color_hover;
+    }};
   }
 
   &:disabled {
-    background-color: #D0D1E1;
+    background-color: ${props => {
+      if(props.variant === 'primary') return props.theme.theme.button.disabled.background;
+    }};
+    color: ${props => {
+      if(props.variant === 'primary') return props.theme.theme.button.disabled.text_color;
+    }};
     cursor: not-allowed;
-  }
-`;
+  }s
+  
+`
+
+
+export const Button = ({children, onClick, variant, disabled}:ButtonProps) => {
+  const theme = useContext(ThemeContext)
+  
+  return (
+    <ThemeProvider>
+      <StyledButton theme={theme} onClick={onClick} variant={variant} disabled={disabled}>
+        {children}
+      </StyledButton>
+    </ThemeProvider>
+  )
+}

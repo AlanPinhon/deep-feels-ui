@@ -7,8 +7,9 @@
     "outDir": "./build",
     "sourceMap": true,
     "declarationMap": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "allowSyntheticDefaultImports": true,
   },
-  "include": ["src"],
+  "include": ["src","custom.d.ts"],
   "exclude": ["node_modules", "src/stories", "**/__tests__/*"]
 }
