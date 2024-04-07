@@ -5,7 +5,8 @@ export const mainColors = {
   danger: "#F04C4C",
   dark_purple: "#2E1A46",
   light_purple: "#888BB4",
-  white: "#FFF"
+  white: "#FFF",
+  black: "#000"
 }
 
 export const lightTheme = {
@@ -24,10 +25,12 @@ export const lightTheme = {
     },
     disabled: {
       background: "#D0D1E1",
+      text_color: mainColors.white 
     },
     feelings: {
       background: mainColors.yellow_primary,
-      hover: "#FFE066"
+      hover: "#FFE066",
+      text_color: "#000"
     }
   }
 };
@@ -53,7 +56,8 @@ export const darkTheme = {
     },
     feelings: {
       background: mainColors.yellow_primary,
-      hover: "#FFE066"
+      hover: "#FFE066",
+      text_color: "#000"
     } 
   },
 };

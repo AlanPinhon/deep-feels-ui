@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
-import { ThemeContext, ThemeProvider } from '../theme/ThemeContext';
+import { ThemeContext, useTheme } from '../theme/ThemeContext';
 import styled from 'styled-components';
 
 export type ButtonProps = {
   children: React.ReactNode,
   onClick: () => void,
-  variant: string,
+  variant: 'primary' | 'error' | 'feelings',
   disabled?: boolean,
 }
 
@@ -56,13 +56,11 @@ export const StyledButton = styled.button<ButtonProps>`
 
 
 export const Button = ({children, onClick, variant, disabled}:ButtonProps) => {
-  const theme = useContext(ThemeContext)
+  const theme = useTheme();
   
   return (
-    <ThemeProvider>
-      <StyledButton theme={theme} onClick={onClick} variant={variant} disabled={disabled}>
-        {children}
-      </StyledButton>
-    </ThemeProvider>
+    <StyledButton theme={theme} onClick={onClick} variant={variant} disabled={disabled}>
+      {children}
+    </StyledButton>
   )
 }

@@ -1,7 +1,7 @@
 import React, { createContext, useContext } from 'react';
 import { darkTheme, lightTheme } from './theme';
 
-type ThemeColorProps = {
+export type ThemeColorProps = {
   theme: typeof lightTheme | typeof darkTheme;
 }
 
