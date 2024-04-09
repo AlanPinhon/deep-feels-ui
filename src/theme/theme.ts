@@ -6,7 +6,8 @@ export const mainColors = {
   dark_purple: "#2E1A46",
   light_purple: "#888BB4",
   white: "#FFF",
-  black: "#000"
+  black: "#000",
+  background_elements_dark: "#494C74",
 }
 
 export const lightTheme = {
@@ -32,7 +33,22 @@ export const lightTheme = {
       hover: "#FFE066",
       text_color: "#000"
     }
-  }
+  },
+  inputForm: {
+    primary: {
+      border: mainColors.light_purple,
+      placeholder_text: "#B7B9D2",
+      background: mainColors.white,
+      text_color: mainColors.purple_primary,
+      label_text_color: mainColors.dark_purple,
+    },
+    error: {
+      border: mainColors.danger,
+    },
+    success: {
+      border: mainColors.success,
+    }
+  },
 };
 
 export const darkTheme = {
@@ -59,5 +75,20 @@ export const darkTheme = {
       hover: "#FFE066",
       text_color: "#000"
     } 
+  },
+  inputForm: {
+    primary: {
+      border: "#D0D1E1",
+      placeholder_text: "#D0D1E1",
+      background: mainColors.background_elements_dark,
+      text_color: mainColors.white,
+      label_text_color: mainColors.white,
+    },
+    error: {
+      border: "#F69393",
+    },
+    success: {
+      border: "#B7E9A0",
+    }
   },
 };

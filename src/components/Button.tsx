@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { ThemeContext, useTheme } from '../theme/ThemeContext';
+import React from 'react';
+import { useTheme } from '../theme/ThemeContext';
 import styled from 'styled-components';
 
 export type ButtonProps = {
@@ -50,8 +50,7 @@ export const StyledButton = styled.button<ButtonProps>`
       if(props.variant === 'primary') return props.theme.theme.button.disabled.text_color;
     }};
     cursor: not-allowed;
-  }s
-  
+  }  
 `
 
 
