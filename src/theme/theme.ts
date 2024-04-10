@@ -35,7 +35,7 @@ export const lightTheme = {
     }
   },
   inputForm: {
-    primary: {
+    main: {
       border: mainColors.light_purple,
       placeholder_text: "#B7B9D2",
       background: mainColors.white,
@@ -77,7 +77,7 @@ export const darkTheme = {
     } 
   },
   inputForm: {
-    primary: {
+    main: {
       border: "#D0D1E1",
       placeholder_text: "#D0D1E1",
       background: mainColors.background_elements_dark,

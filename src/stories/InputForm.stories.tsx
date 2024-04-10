@@ -9,26 +9,26 @@ export default meta;
 
 type Story = StoryObj<InputFormProps>;
 
-export const Primary: Story = {
+export const Text: Story = {
   args: {
     children: 'Name',
-    variant: 'primary',
-    placeholder: 'Input',
+    type: 'text',
+    placeholder: 'Gerald Bostock',
   }
 }
 
-export const Error: Story = {
+export const Password: Story = {
   args: {
-    children: 'Name',
-    variant: 'error',
-    placeholder: 'Input',
+    children: 'Password',
+    type: 'password',
+    placeholder: 'Password',
   }
 }
 
-export const Success: Story = {
+export const Email: Story = {
   args: {
-    children: 'Name',
-    variant: 'success',
-    placeholder: 'Input',
+    children: 'Email',
+    type: 'email',
+    placeholder: 'email@domain.com',
   }
 }
