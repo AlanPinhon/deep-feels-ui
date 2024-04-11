@@ -6,6 +6,7 @@ export type InputFormProps = {
   children?: React.ReactNode;
   placeholder?: string;
   type?: 'text' | 'password' | 'email';
+  errorText?: string
 }
 
 export const InputContainer = styled.section`
@@ -44,15 +45,21 @@ export const StyledInputForm = styled.input<InputFormProps>`
   }
 `
 
-export const InputForm = ({children, placeholder, type}:InputFormProps) => {
+export const StyledErrorMsg = styled.p`
+  color: #F04C4C
+`
+
+export const InputForm = ({children, placeholder, type, errorText}:InputFormProps) => {
   const theme = useTheme();
   const [value, setValue] = useState('');
   const [inputState, setInputState] = useState<'error' | 'success' | undefined>();
+  const [errorMsg, setErrorMsg] = useState('')
 
   const handleInputValue = ({target}:ChangeEvent<HTMLInputElement>) => {
     const inputValue = target.value;
     setValue(inputValue);
     const isValid = validateInput(inputValue, type);
+    setErrorMsg((!isValid) && errorText);
     setInputState((!isValid) ? 'error' : 'success');
   }
 
@@ -71,7 +78,9 @@ export const InputForm = ({children, placeholder, type}:InputFormProps) => {
         onChange={handleInputValue}
         type={type}
         value={value}
-        placeholder={placeholder}/>
+        placeholder={placeholder}
+      />
+      {errorMsg && <StyledErrorMsg>{errorMsg}</StyledErrorMsg>}
     </InputContainer>
   )
 }
