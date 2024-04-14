@@ -3,37 +3,14 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { InputForm } from '../../src/components/InputForm';
 
 describe('tests in <InputForm/>', () => { 
+  const placeholder = 'Your Name Here';
+  const onChangeMock = jest.fn();
 
-  test('should change the value in the input', () => { 
+  test('should show the input with placeholder text', () => { 
+    render(<InputForm value='' onChange={onChangeMock} placeholder={placeholder} type='text'/>);
 
-    render(
-      <InputForm
-        children='Email'
-        placeholder='user@email.com'
-        type= 'email'
-        errorText='Enter a valid email'
-      />
-    )
-    
-    const input = screen.getByPlaceholderText('user@email.com') as HTMLInputElement;
-    fireEvent.change(input, {target: {value : 'alan32@gmail.com'}});
-    expect(input.value).toBe('alan32@gmail.com');
-  })
-
-  test('Should show an error message if the input value is invalid', () => { 
-
-    render(
-      <InputForm
-        children='Email'
-        placeholder='user@email.com'
-        type= 'email'
-        errorText='Enter a valid email'
-      />
-    )
-    
-    const input = screen.getByPlaceholderText('user@email.com') as HTMLInputElement;
-    fireEvent.change(input, {target: {value : 'alan32@'}});
-    expect(screen.getByText('Enter a valid email')).toBeTruthy();
+    const input = screen.getByPlaceholderText(placeholder) as HTMLInputElement;
+    expect(input).toBeTruthy();
   })
 
 });

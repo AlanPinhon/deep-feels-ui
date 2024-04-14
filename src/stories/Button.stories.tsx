@@ -32,11 +32,3 @@ export const Disabled: Story = {
     disabled: true,
   }
 }
-
-export const Feelings: Story = {
-  args: {
-    children: 'Feelings',
-    onClick: () => alert('Go to main screen...'),
-    variant: 'feelings',
-  }
-}

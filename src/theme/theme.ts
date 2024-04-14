@@ -1,94 +1,61 @@
-export const mainColors = {
-  purple_primary: "#534588",
-  yellow_primary: "#FFCE02",
-  success: "#88DA62",
-  danger: "#F04C4C",
-  dark_purple: "#2E1A46",
-  light_purple: "#888BB4",
-  white: "#FFF",
-  black: "#000",
-  background_elements_dark: "#494C74",
-}
+import { interfaceColors } from './colors';
 
 export const lightTheme = {
   button: {
     primary: {
-      background: mainColors.purple_primary,
-      hover: "#322951",
-      text_color: mainColors.white 
+      background: interfaceColors.button.primary.background.light,
+      hover: interfaceColors.button.primary.hoverBackground.light,
+      textColor: interfaceColors.button.primary.textColor.light
     },
     danger: {
-      background: "rgba(255, 255, 255, 0)",
-      hover: mainColors.danger,
-      border_color: mainColors.danger,
-      text_color: mainColors.danger,
-      text_color_hover: mainColors.white, 
+      background: interfaceColors.button.danger.background.light,
+      hover: interfaceColors.button.danger.hoverBackground.light,
+      textColor: interfaceColors.button.danger.textColor.light,
+      textColorHover: interfaceColors.button.danger.textColorHover.light,
+      border: interfaceColors.border.error.light
     },
     disabled: {
-      background: "#D0D1E1",
-      text_color: mainColors.white 
-    },
-    feelings: {
-      background: mainColors.yellow_primary,
-      hover: "#FFE066",
-      text_color: "#000"
+      background: interfaceColors.button.disabled.background.light,
+      textColor: interfaceColors.button.disabled.textColor.light
     }
   },
   inputForm: {
-    main: {
-      border: mainColors.light_purple,
-      placeholder_text: "#B7B9D2",
-      background: mainColors.white,
-      text_color: mainColors.purple_primary,
-      label_text_color: mainColors.dark_purple,
-    },
-    error: {
-      border: mainColors.danger,
-    },
-    success: {
-      border: mainColors.success,
-    }
+    background: interfaceColors.input.background.light ,
+    textColor: interfaceColors.input.textColor.light ,
+    placeholder: interfaceColors.input.placeholder.light ,
+    label: interfaceColors.input.label.light,
+    mainBorder: interfaceColors.border.main.light,
+    errorBorder: interfaceColors.border.error.light,
+    successBorder: interfaceColors.border.success.light,
   },
 };
 
 export const darkTheme = {
   button: {
     primary: {
-      background: "#63669C",
-      hover: "#A1A3C4",
-      border_color: "none",
-      text_color: mainColors.white
-    }, 
+      background: interfaceColors.button.primary.background.dark,
+      hover: interfaceColors.button.primary.hoverBackground.dark,
+      textColor: interfaceColors.button.primary.textColor.dark
+    },
     danger: {
-      background: "rgba(255, 255, 255, 0)",
-      hover: "#F69393",
-      border_color: "#F69393",
-      text_color: "#F69393",
-      text_color_hover: mainColors.white,
+      background: interfaceColors.button.danger.background.dark,
+      hover: interfaceColors.button.danger.hoverBackground.dark,
+      textColor: interfaceColors.button.danger.textColor.dark,
+      textColorHover: interfaceColors.button.danger.textColorHover.dark,
+      border: interfaceColors.border.error.dark
     },
     disabled: {
-      background: "#322951",
-      text_color: mainColors.purple_primary,
-    },
-    feelings: {
-      background: mainColors.yellow_primary,
-      hover: "#FFE066",
-      text_color: "#000"
-    } 
+      background: interfaceColors.button.disabled.background.dark,
+      textColor: interfaceColors.button.disabled.textColor.dark
+    }
   },
   inputForm: {
-    main: {
-      border: "#D0D1E1",
-      placeholder_text: "#D0D1E1",
-      background: mainColors.background_elements_dark,
-      text_color: mainColors.white,
-      label_text_color: mainColors.white,
-    },
-    error: {
-      border: "#F69393",
-    },
-    success: {
-      border: "#B7E9A0",
-    }
+    background: interfaceColors.input.background.dark ,
+    textColor: interfaceColors.input.textColor.dark ,
+    placeholder: interfaceColors.input.placeholder.dark ,
+    label: interfaceColors.input.label.dark,
+    mainBorder: interfaceColors.border.main.dark,
+    errorBorder: interfaceColors.border.error.dark,
+    successBorder: interfaceColors.border.success.dark,
   },
 };

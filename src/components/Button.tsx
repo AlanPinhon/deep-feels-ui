@@ -5,7 +5,7 @@ import styled from 'styled-components';
 export type ButtonProps = {
   children: React.ReactNode,
   onClick: () => void,
-  variant: 'primary' | 'error' | 'feelings',
+  variant: 'primary' | 'error' ,
   disabled?: boolean,
 }
 
@@ -13,15 +13,13 @@ export const StyledButton = styled.button<ButtonProps>`
   background-color: ${props => {
     if(props.variant === 'primary') return props.theme.theme.button.primary.background;
     if(props.variant === 'error') return props.theme.theme.button.danger.background;
-    if(props.variant === 'feelings') return props.theme.theme.button.feelings.background;
   }};
   color: ${props => {
-    if(props.variant === 'primary') return props.theme.theme.button.primary.text_color;
-    if(props.variant === 'error') return props.theme.theme.button.danger.text_color;
-    if(props.variant === 'feelings') return props.theme.theme.button.feelings.text_color;
+    if(props.variant === 'primary') return props.theme.theme.button.primary.textColor;
+    if(props.variant === 'error') return props.theme.theme.button.danger.textColor;
   }};
   border: ${props => {
-    if(props.variant === 'error') return `1px solid ${props.theme.theme.button.danger.border_color}`;
+    if(props.variant === 'error') return `1px solid ${props.theme.theme.button.danger.border}`;
     return "none"
   }};
   font-size: 17px;
@@ -38,7 +36,7 @@ export const StyledButton = styled.button<ButtonProps>`
       if(props.variant === 'feelings') return props.theme.theme.button.feelings.hover;
     }};
     color: ${props => {
-      if(props.variant === 'error') return props.theme.theme.button.danger.text_color_hover;
+      if(props.variant === 'error') return props.theme.theme.button.danger.textColorHover;
     }};
   }
 
@@ -47,7 +45,7 @@ export const StyledButton = styled.button<ButtonProps>`
       if(props.variant === 'primary') return props.theme.theme.button.disabled.background;
     }};
     color: ${props => {
-      if(props.variant === 'primary') return props.theme.theme.button.disabled.text_color;
+      if(props.variant === 'primary') return props.theme.theme.button.disabled.textColor;
     }};
     cursor: not-allowed;
   }  
