@@ -1,6 +1,7 @@
 import React, { ChangeEvent } from 'react';
 import { useTheme } from '../theme/ThemeContext';
 import styled from 'styled-components';
+import { colors } from '../theme/colors';
 
 export type InputFormProps = {
   placeholder?: string;
@@ -13,9 +14,9 @@ export const StyledInputForm = styled.input<InputFormProps>`
   width: 348px;
   padding: 12px;
   margin-top: 8px;
-  color: ${props => props.theme.theme.inputForm.textColor};
-  background-color: ${props => props.theme.theme.inputForm.background};
-  border: 1px solid ${props => props.theme.theme.inputForm.mainBorder};
+  color: ${props =>  (props.theme.theme === 'dark') ? colors.neutralColors.white : colors.purple.p_500 };
+  background-color: ${props => (props.theme.theme === 'dark') ? colors.lightPurple.lp_700 : colors.neutralColors.white };
+  border: 1px solid ${props => (props.theme.theme === 'dark') ? colors.neutralColors.white : colors.lightPurple.lp_700 };
   border-radius: 4px;
 
   &:focus {
@@ -23,15 +24,15 @@ export const StyledInputForm = styled.input<InputFormProps>`
   }
 
   &::placeholder {
-    color: ${props => props.theme.theme.inputForm.placeholder};
+    color: ${props => (props.theme.theme === 'dark') ? colors.lightPurple.lp_500 : colors.lightPurple.lp_300 };
   }
 
   &.error {
-    border-color: ${props => props.theme.theme.inputForm.errorBorder};
+    border-color: ${props => (props.theme.theme === 'dark') ? colors.red.r_300 : colors.red.r_500 };
   }
 
   &.success {
-    border-color: ${props => props.theme.theme.inputForm.successBorder};
+    border-color: ${props => (props.theme.theme === 'dark') ? colors.green.g_300 : colors.green.g_500 };
   }
 `
 
