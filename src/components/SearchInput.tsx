@@ -3,20 +3,20 @@ import { useTheme } from '../theme/ThemeContext';
 import styled from 'styled-components';
 import { colors } from '../theme/colors';
 
-export type InputFormProps = {
+export type SearchInputProps = {
   placeholder?: string;
-  type: 'text' | 'password' | 'email';
   value: string;
   onChange: (e:ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const StyledInputForm = styled.input<InputFormProps>`
+export const StyledSearchInput = styled.input<SearchInputProps>`
   width: 348px;
   padding: 12px;
   color: ${props =>  (props.theme.theme === 'dark') ? colors.neutralColors.white : colors.purple.p_500 };
   background-color: ${props => (props.theme.theme === 'dark') ? colors.lightPurple.lp_700 : colors.neutralColors.white };
-  border: 1px solid ${props => (props.theme.theme === 'dark') ? colors.neutralColors.white : colors.lightPurple.lp_700 };
-  border-radius: 4px;
+  border: none;
+  border-radius: 8px;
+  filter: drop-shadow(2px 2px 4px ${colors.neutralColors.shadow});
 
   &:focus {
     outline: none;
@@ -25,26 +25,17 @@ export const StyledInputForm = styled.input<InputFormProps>`
   &::placeholder {
     color: ${props => (props.theme.theme === 'dark') ? colors.lightPurple.lp_500 : colors.lightPurple.lp_300 };
   }
-
-  &.error {
-    border-color: ${props => (props.theme.theme === 'dark') ? colors.red.r_300 : colors.red.r_500 };
-  }
-
-  &.success {
-    border-color: ${props => (props.theme.theme === 'dark') ? colors.green.g_300 : colors.green.g_500 };
-  }
 `
 
-export const InputForm = ({placeholder, type, value, onChange}:InputFormProps) => {
+export const SearchInput = ({placeholder, value, onChange}:SearchInputProps) => {
   const theme = useTheme();
- 
+
   return (
-    <StyledInputForm 
-    theme={theme} 
-    type={type} 
-    placeholder={placeholder}
-    value={value}
-    onChange={onChange}
+    <StyledSearchInput 
+      placeholder={placeholder}
+      theme={theme} 
+      value={value} 
+      onChange={onChange}
     />
   )
 }
