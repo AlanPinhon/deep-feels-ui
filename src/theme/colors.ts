@@ -3,7 +3,7 @@ const neutralColors = {
   black: '#000',
   transparent: '#fff0',
   blurCard: '#000000a6',
-  shadow: '#0000000d'
+  shadow: '#0000001a'
 }
 
 const purple = {
