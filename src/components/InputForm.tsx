@@ -2,8 +2,10 @@ import React, { ChangeEvent } from 'react';
 import { useTheme } from '../theme/ThemeContext';
 import styled from 'styled-components';
 import { colors } from '../theme/colors';
+import { Icon, IconName } from './Icon';
 
 export type InputFormProps = {
+  withIcon?: IconName;
   placeholder?: string;
   type: 'text' | 'password' | 'email';
   value: string;
@@ -36,16 +38,19 @@ export const StyledInputForm = styled.input<InputFormProps>`
   }
 `
 
-export const InputForm = ({placeholder, type, value, onChange}:InputFormProps) => {
+export const InputForm = ({placeholder, type, value, onChange, withIcon }:InputFormProps) => {
   const theme = useTheme();
- 
+
   return (
-    <StyledInputForm 
-    theme={theme} 
-    type={type} 
-    placeholder={placeholder}
-    value={value}
-    onChange={onChange}
-    />
+    <>
+      <StyledInputForm
+      theme={theme}
+      type={type}
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}
+      />
+      {(withIcon) && <Icon name={withIcon}/>}
+    </>
   )
 }

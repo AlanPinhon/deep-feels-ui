@@ -27,5 +27,6 @@ export const Email: Story = {
   args: {
     type: 'email',
     placeholder: 'email@domain.com',
+    withIcon: "SearchIcon"
   }
 }
