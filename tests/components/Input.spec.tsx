@@ -1,16 +1,24 @@
 import React, { useState, ChangeEvent } from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
-import { InputForm } from '../../src/components/InputForm';
+import { Input } from '../../src/components/Input';
 
-describe('tests in <InputForm/>', () => { 
+describe('tests in <Input/>', () => { 
 
   test('should show the input with placeholder text', () => { 
     const onChangeMock = jest.fn();
-    render(<InputForm value='' onChange={onChangeMock} placeholder='Your Name Here' type='text'/>);
+    render(<Input value='' onChange={onChangeMock} placeholder='Your Name Here' type='text'/>);
 
     const input = screen.getByPlaceholderText('Your Name Here') as HTMLInputElement;
     expect(input).toBeTruthy();
+  })
+
+  test('should show the icon in the input', () => { 
+    const onChangeMock = jest.fn();
+    render(<Input value='' onChange={onChangeMock} placeholder='Search' type='text' icon/>);
+
+    const icon = document.getElementById('search');
+    expect(icon).toBeTruthy();
   })
 
   test('should change the input value', async () => {
@@ -22,7 +30,7 @@ describe('tests in <InputForm/>', () => {
       const handleInputValue = ({target}:ChangeEvent<HTMLInputElement>) => setValue(target.value)
 
       return ( 
-        <InputForm
+        <Input
           onChange={handleInputValue}
           type='text'
           placeholder='Your Name Here'
