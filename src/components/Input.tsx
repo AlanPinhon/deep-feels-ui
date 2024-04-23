@@ -2,10 +2,10 @@ import React, { ChangeEvent } from 'react';
 import { useTheme } from '../theme/ThemeContext';
 import styled from 'styled-components';
 import { colors } from '../theme/colors';
-import { SearchIcon } from '../assets/Icons';
+import { Icon, IconName } from './Icon';
 
 export type InputProps = {
-  icon?: boolean;
+  withIcon?: IconName;
   placeholder?: string;
   type: 'text' | 'password' | 'email';
   value: string;
@@ -49,7 +49,7 @@ export const StyledInput = styled.input<InputProps>`
   }
 `
 
-export const Input = ({icon, placeholder, type, value, onChange}:InputProps) => {
+export const Input = ({withIcon, placeholder, type, value, onChange}:InputProps) => {
   const theme = useTheme();
  
   return (
@@ -61,7 +61,7 @@ export const Input = ({icon, placeholder, type, value, onChange}:InputProps) => 
         value={value} 
         onChange={onChange}
       />
-      {icon && <SearchIcon size={16}/>}
+      {withIcon && <Icon name={withIcon}/>}
     </ContainerInput>
   )
 }

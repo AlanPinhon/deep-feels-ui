@@ -1,7 +1,7 @@
 import React from 'react';
-import { useTheme } from '../../../theme/ThemeContext';
-import { colors } from '../../../theme/colors';
-import { IconProps } from '../IconProps';
+import { useTheme } from '../../theme/ThemeContext';
+import { colors } from '../../theme/colors';
+import { IconProps } from './IconProps';
 
 export const SearchIcon = ({size}:IconProps) => {
   const theme = useTheme();

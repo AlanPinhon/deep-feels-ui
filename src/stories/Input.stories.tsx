@@ -32,8 +32,8 @@ export const Email: Story = {
 
 export const Icon: Story = {
   args: {
-    icon: true,
     type: 'text',
     placeholder: 'Search',
+    withIcon: 'SearchIcon'
   }
 }
