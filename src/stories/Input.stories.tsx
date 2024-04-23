@@ -1,13 +1,13 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { InputForm, InputFormProps } from '../components/InputForm';
+import { Input, InputProps } from '../components/Input';
 
-const meta:Meta <typeof InputForm> = {
-  component: InputForm,
+const meta:Meta <typeof Input> = {
+  component: Input,
 };
 
 export default meta;
 
-type Story = StoryObj<InputFormProps>;
+type Story = StoryObj<InputProps>;
 
 export const Text: Story = {
   args: {
@@ -27,5 +27,13 @@ export const Email: Story = {
   args: {
     type: 'email',
     placeholder: 'email@domain.com',
+  }
+}
+
+export const Icon: Story = {
+  args: {
+    type: 'text',
+    placeholder: 'Search',
+    withIcon: 'SearchIcon'
   }
 }
