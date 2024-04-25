@@ -2,6 +2,7 @@ import React, { ChangeEvent } from 'react';
 import { useTheme } from '../theme/ThemeContext';
 import styled from 'styled-components';
 import { colors } from '../theme/colors';
+import { font, fontSizes, fontWeights, spaces } from '../theme/index';
 import { Icon, IconName } from './Icon';
 
 export type InputProps = {
@@ -17,20 +18,23 @@ export const ContainerInput = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 348px;
-  padding: 12px;
+  padding: ${spaces.md};
   color: ${props =>  (props.theme.theme === 'dark') ? colors.neutralColors.white : colors.purple.p_500 };
   background-color: ${props => (props.theme.theme === 'dark') ? colors.lightPurple.lp_700 : colors.neutralColors.white };
   border: 1px solid ${props => (props.theme.theme === 'dark') ? colors.neutralColors.white : colors.lightPurple.lp_700 };
-  border-radius: 8px;
+  border-radius: ${spaces.sm};
   filter: drop-shadow(2px 2px 4px ${colors.neutralColors.shadow});
 `
 
 export const StyledInput = styled.input<InputProps>`
   width: 348px;
+  font-family: ${font.sans};
+  font-size: ${fontSizes.p_sm};
+  font-weight: ${fontWeights.light};
   color: ${props =>  (props.theme.theme === 'dark') ? colors.neutralColors.white : colors.purple.p_500 };
   background-color: ${props => (props.theme.theme === 'dark') ? colors.lightPurple.lp_700 : colors.neutralColors.white };
   border: none;
-  border-radius: 4px;
+  border-radius: ${spaces.xs};
 
   &:focus {
     outline: none;

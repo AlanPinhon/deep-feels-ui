@@ -2,6 +2,7 @@ import React from 'react';
 import { useTheme } from '../theme/ThemeContext';
 import styled from 'styled-components';
 import { colors } from '../theme/colors';
+import { font, fontSizes, fontWeights, spaces } from '../theme/index';
 
 export type ButtonProps = {
   children: React.ReactNode,
@@ -11,10 +12,11 @@ export type ButtonProps = {
 }
 
 export const StyledButton = styled.button<ButtonProps>`
-  font-size: 17px;
-  font-weight: bold;
-  border-radius: 8px;
-  padding: .75rem 1rem;
+  font-family: ${font.sans};
+  font-size: ${fontSizes.p_lg};
+  font-weight: ${fontWeights.bold};
+  border-radius: ${spaces.sm};
+  padding: ${spaces.md} ${spaces.lg};
   cursor: pointer;
   transition: .15s ease-in-out;
 
