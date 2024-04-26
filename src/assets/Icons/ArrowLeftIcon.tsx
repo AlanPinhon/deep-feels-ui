@@ -12,7 +12,7 @@ export const ArrowLeftIcon = ({size}:IconProps) => {
         <path 
           id="Vector" 
           d="M15 19L8 12L15 5" 
-          stroke={(theme.theme === 'dark') ? colors.neutralColors.white : colors.purple.p_500} 
+          stroke={(theme.theme === 'dark') ? colors.neutralColors.white : colors.purple[500]} 
           stroke-width="2" 
           stroke-linecap="round" 
           stroke-linejoin="round"

@@ -22,12 +22,12 @@ export const StyledButton = styled.button<ButtonProps>`
 
   ${props => {
     if (props.variant === 'primary') return `
-    background-color: ${(props.theme.theme === 'dark') ? colors.lightPurple.lp_600 : colors.purple.p_500};
+    background-color: ${(props.theme.theme === 'dark') ? colors.lightPurple[600] : colors.purple[500]};
     color: ${ colors.neutralColors.white };
     border: none;
 
     &:hover {
-      background-color: ${(props.theme.theme === 'dark') ? colors.lightPurple.lp_400 : colors.purple.p_700};
+      background-color: ${(props.theme.theme === 'dark') ? colors.lightPurple[400] : colors.purple[700]};
     };
     `
   }}
@@ -35,19 +35,19 @@ export const StyledButton = styled.button<ButtonProps>`
   ${props => {
     if (props.variant === 'error') return `
     background-color: ${colors.neutralColors.white};
-    color: ${(props.theme.theme === 'dark') ? colors.red.r_300 : colors.red.r_500};
-    border: 1px solid ${(props.theme.theme === 'dark') ? colors.red.r_300 : colors.red.r_500};
+    color: ${(props.theme.theme === 'dark') ? colors.red[300] : colors.red[500]};
+    border: 1px solid ${(props.theme.theme === 'dark') ? colors.red[300] : colors.red[500]};
 
     &:hover {
-      background-color: ${(props.theme.theme === 'dark') ? colors.red.r_300 : colors.red.r_500};
+      background-color: ${(props.theme.theme === 'dark') ? colors.red[300] : colors.red[500]};
       color: ${colors.neutralColors.white};
     };
     `
   }}  
 
   &:disabled {
-    background-color: ${props => (props.theme.theme === 'dark') ? colors.purple.p_700 : colors.lightPurple.lp_200 };
-    color: ${props => (props.theme.theme === 'dark') ? colors.purple.p_500 : colors.neutralColors.white };
+    background-color: ${props => (props.theme.theme === 'dark') ? colors.purple[700] : colors.lightPurple[200] };
+    color: ${props => (props.theme.theme === 'dark') ? colors.purple[500] : colors.neutralColors.white };
     cursor: not-allowed;
   }  
 `
