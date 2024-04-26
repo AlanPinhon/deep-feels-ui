@@ -8,6 +8,14 @@ export const spaces = {
   none: '0',
 }
 
+export const iconSizes = {
+  xs: "0.75rem",
+  sm: "1rem",
+  md: "1.25rem",
+  lg: "1.5rem",
+  xl: "1.75rem"
+};
+
 export const font = {
   sans: 'Geomanist, sans-serif',
   base: 'Geomanist, sans-serif',
