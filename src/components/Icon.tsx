@@ -1,9 +1,48 @@
 import React from 'react';
-import { SearchIcon } from '../assets/Icons';
+import { ArrowLeftIcon, CameraIcon, CheckIcon, CompassIcon, DarkIcon, ErrorIcon, HeartIcon, HomeIcon, LightIcon, LockIcon, MobileIcon, NextIcon, PauseIcon, PlayIcon, PrevIcon, SearchIcon, SettingsIcon, ThemeIcon, UserIcon } from '../assets/Icons';
 
-export type IconName = 'SearchIcon';
+export type IconName = 
+'ArrowLeftIcon' |
+'CameraIcon' |
+'CheckIcon' |
+'CompassIcon' |
+'DarkIcon' |
+'ErrorIcon' |
+'HeartIcon' |
+'HomeIcon' |
+'LightIcon' |
+'LockIcon' |
+'MobileIcon' |
+'NextIcon' |
+'PauseIcon' |
+'PlayIcon' |
+'PrevIcon' |
+'SearchIcon' |
+'SettingsIcon' |
+'ThemeIcon' |
+'UserIcon';
 
-const Icons = { SearchIcon };
+const Icons = {
+  ArrowLeftIcon,
+  CameraIcon,
+  CheckIcon,
+  CompassIcon,
+  DarkIcon,
+  ErrorIcon,
+  HeartIcon,
+  HomeIcon,
+  LightIcon,
+  LockIcon,
+  MobileIcon,
+  NextIcon,
+  PauseIcon,
+  PlayIcon,
+  PrevIcon,
+  SearchIcon,
+  SettingsIcon,
+  ThemeIcon,
+  UserIcon
+};
 
 export const Icon = ({name}:{name : IconName}) => {
   const Component = Icons[name];
