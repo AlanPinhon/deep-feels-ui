@@ -1,11 +1,31 @@
 import React from 'react';
-import { SearchIcon } from '../assets/Icons';
+import { ArrowLeftIcon, CameraIcon, CheckIcon, CompassIcon, DarkIcon, ErrorIcon, HeartIcon, HomeIcon, LightIcon, LockIcon, MobileIcon, NextIcon, PauseIcon, PlayIcon, PrevIcon, SearchIcon, SettingsIcon, ThemeIcon, UserIcon } from '../assets/Icons';
+import { IconProps, IconName } from '../assets/Icons/IconTypes';
+import { iconSizes } from '../theme/index';
 
-export type IconName = 'SearchIcon';
+const Icons = {
+  ArrowLeftIcon,
+  CameraIcon,
+  CheckIcon,
+  CompassIcon,
+  DarkIcon,
+  ErrorIcon,
+  HeartIcon,
+  HomeIcon,
+  LightIcon,
+  LockIcon,
+  MobileIcon,
+  NextIcon,
+  PauseIcon,
+  PlayIcon,
+  PrevIcon,
+  SearchIcon,
+  SettingsIcon,
+  ThemeIcon,
+  UserIcon
+};
 
-const Icons = { SearchIcon };
-
-export const Icon = ({name}:{name : IconName}) => {
+export const Icon = ({name, size}:{name : IconName; size: IconProps['size']}) => {
   const Component = Icons[name];
-  return <Component size={16}/>
+  return <Component size={(iconSizes[size as string])}/>
 }
