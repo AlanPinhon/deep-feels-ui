@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTheme } from '../../theme/ThemeContext';
 import { colors } from '../../theme/colors';
-import { IconProps } from './IconProps';
+import { IconProps } from './IconTypes';
 
 export const SettingsIcon = ({size}:IconProps) => {
   const theme = useTheme();

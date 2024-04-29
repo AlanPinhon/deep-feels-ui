@@ -2,7 +2,8 @@ import React, { ChangeEvent } from 'react';
 import { useTheme } from '../theme/ThemeContext';
 import styled from 'styled-components';
 import { colors } from '../theme/colors';
-import { font, fontSizes, fontWeights, spaces, IconName } from '../theme/index';
+import { font, fontSizes, fontWeights, spaces } from '../theme/index';
+import { IconName } from '../assets/Icons/IconTypes';
 import { Icon } from './Icon';
 
 export type InputProps = {

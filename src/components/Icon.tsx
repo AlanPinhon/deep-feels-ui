@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowLeftIcon, CameraIcon, CheckIcon, CompassIcon, DarkIcon, ErrorIcon, HeartIcon, HomeIcon, LightIcon, LockIcon, MobileIcon, NextIcon, PauseIcon, PlayIcon, PrevIcon, SearchIcon, SettingsIcon, ThemeIcon, UserIcon } from '../assets/Icons';
-import { IconProps } from '../assets/Icons/IconProps';
-import { iconSizes, IconName } from '../theme/index';
+import { IconProps, IconName } from '../assets/Icons/IconTypes';
+import { iconSizes } from '../theme/index';
 
 const Icons = {
   ArrowLeftIcon,
