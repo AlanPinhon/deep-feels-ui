@@ -39,3 +39,24 @@ export const fontWeights = {
   regular: '500',
   bold: '700',
 }
+
+export type IconName = 
+'ArrowLeftIcon' |
+'CameraIcon' |
+'CheckIcon' |
+'CompassIcon' |
+'DarkIcon' |
+'ErrorIcon' |
+'HeartIcon' |
+'HomeIcon' |
+'LightIcon' |
+'LockIcon' |
+'MobileIcon' |
+'NextIcon' |
+'PauseIcon' |
+'PlayIcon' |
+'PrevIcon' |
+'SearchIcon' |
+'SettingsIcon' |
+'ThemeIcon' |
+'UserIcon';

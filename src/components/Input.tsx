@@ -2,8 +2,8 @@ import React, { ChangeEvent } from 'react';
 import { useTheme } from '../theme/ThemeContext';
 import styled from 'styled-components';
 import { colors } from '../theme/colors';
-import { font, fontSizes, fontWeights, spaces } from '../theme/index';
-import { Icon, IconName } from './Icon';
+import { font, fontSizes, fontWeights, spaces, IconName } from '../theme/index';
+import { Icon } from './Icon';
 
 export type InputProps = {
   withIcon?: IconName;
@@ -65,7 +65,7 @@ export const Input = ({withIcon, placeholder, type, value, onChange}:InputProps)
         value={value} 
         onChange={onChange}
       />
-      {withIcon && <Icon name={withIcon}/>}
+      {withIcon && <Icon name={withIcon} size='sm'/>}
     </ContainerInput>
   )
 }

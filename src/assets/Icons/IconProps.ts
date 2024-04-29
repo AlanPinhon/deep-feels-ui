@@ -1,3 +1,5 @@
+import { iconSizes } from '../../theme/index';
+
 export type IconProps = {
-  size: string
+  size: keyof typeof iconSizes;
 }
