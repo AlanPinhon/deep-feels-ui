@@ -13,9 +13,9 @@ export const ArrowLeftIcon = ({size}:IconProps) => {
           id="Vector" 
           d="M15 19L8 12L15 5" 
           stroke={(theme.theme === 'dark') ? colors.neutralColors.white : colors.purple[500]} 
-          stroke-width="2" 
-          stroke-linecap="round" 
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </g>
     </svg>
