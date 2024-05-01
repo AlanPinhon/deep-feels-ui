@@ -7,7 +7,7 @@ export const LockIcon = ({size}:IconProps) => {
   const theme = useTheme();
 
   return (
-    <svg id='lock' width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg data-icon='lock' width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="Interface / Lock">
         <path 
           id="Vector" 

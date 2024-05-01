@@ -7,7 +7,7 @@ export const NextIcon = ({size}:IconProps) => {
   const theme = useTheme();
 
   return (
-    <svg id='next' width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg data-icon='next' width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="Media / Skip_Forward">
         <path 
           id="Vector" 

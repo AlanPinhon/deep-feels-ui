@@ -1,13 +1,11 @@
 import React from 'react';
-import { useTheme } from '../../theme/ThemeContext';
 import { colors } from '../../theme/colors';
 import { IconProps } from './IconTypes';
 
 export const HeartIcon = ({size}:IconProps) => {
-  const theme = useTheme();
 
   return (
-    <svg id='heart' width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg data-icon='heart' width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="Interface / Heart_01">
         <path 
           id="Vector" 
