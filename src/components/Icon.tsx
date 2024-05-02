@@ -1,4 +1,8 @@
 import React from 'react';
+import { useTheme } from '../theme/ThemeContext';
+import styled from 'styled-components';
+import { colors } from '../theme/colors';
+import { font, fontSizes, fontWeights, spaces } from '../theme/index'
 import { ArrowLeftIcon, CameraIcon, CheckIcon, CompassIcon, DarkIcon, ErrorIcon, HeartIcon, HomeIcon, LightIcon, LockIcon, MobileIcon, NextIcon, PauseIcon, PlayIcon, PrevIcon, SearchIcon, SettingsIcon, ThemeIcon, UserIcon } from '../assets/Icons';
 import { IconProps, IconName } from '../assets/Icons/IconTypes';
 import { iconSizes } from '../theme/index';
