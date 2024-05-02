@@ -15,9 +15,9 @@ describe('tests in <Input/>', () => {
 
   test('should show the icon in the input', () => { 
     const onChangeMock = jest.fn();
-    render(<Input value='' onChange={onChangeMock} placeholder='Search' type='text' withIcon='SearchIcon'/>);
+    const { container } = render(<Input value='' onChange={onChangeMock} placeholder='Search' type='text' withIcon='SearchIcon'/>);
 
-    const icon = document.getElementById('search');
+    const icon = container.querySelector("[data-icon='search']");
     expect(icon).toBeTruthy();
   })
 
