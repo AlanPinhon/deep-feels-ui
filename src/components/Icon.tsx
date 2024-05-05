@@ -2,12 +2,13 @@ import React from 'react';
 import { useTheme } from '../theme/ThemeContext';
 import styled from 'styled-components';
 import { colors } from '../theme/colors';
-import { ArrowLeftIcon, CameraIcon, CheckIcon, CompassIcon, DarkIcon, ErrorIcon, HeartIcon, HomeIcon, LightIcon, LockIcon, MobileIcon, NextIcon, PauseIcon, PlayIcon, PrevIcon, SearchIcon, SettingsIcon, ThemeIcon, UserIcon } from '../assets/Icons';
+import { ArrowLeftIcon, ArrowRightIcon, CameraIcon, CheckIcon, CompassIcon, DarkIcon, ErrorIcon, HeartIcon, HomeIcon, LightIcon, LockIcon, MobileIcon, NextIcon, PauseIcon, PlayIcon, PrevIcon, RadioFill, RadioUnchecked, SearchIcon, SettingsIcon, ThemeIcon, UserIcon } from '../assets/Icons';
 import { IconProps, IconName } from '../assets/Icons/IconTypes';
 import { iconSizes } from '../theme/index';
 
 const Icons = {
   ArrowLeftIcon,
+  ArrowRightIcon,
   CameraIcon,
   CheckIcon,
   CompassIcon,
@@ -22,6 +23,8 @@ const Icons = {
   PauseIcon,
   PlayIcon,
   PrevIcon,
+  RadioFill,
+  RadioUnchecked,
   SearchIcon,
   SettingsIcon,
   ThemeIcon,
@@ -38,7 +41,7 @@ const Background = styled.div`
   background-color: ${props => (props.theme.theme === 'dark' ? colors.lightPurple[700] : colors.lightPurple[200] )};
 `
 
-export const Icon = ({name, size, background}:{name : IconName; size: IconProps['size'], background: IconProps['background']}) => {
+export const Icon = ({name, size, background}:{name : IconName; size: IconProps['size'], background?: IconProps['background']}) => {
   const theme = useTheme();
   const Component = Icons[name];
 

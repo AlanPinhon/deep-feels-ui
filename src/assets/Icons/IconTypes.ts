@@ -7,6 +7,7 @@ export type IconProps = {
 
 export type IconName = 
 'ArrowLeftIcon' |
+'ArrowRightIcon' |
 'CameraIcon' |
 'CheckIcon' |
 'CompassIcon' |
@@ -21,6 +22,8 @@ export type IconName =
 'PauseIcon' |
 'PlayIcon' |
 'PrevIcon' |
+'RadioFill' |
+'RadioUnchecked' |
 'SearchIcon' |
 'SettingsIcon' |
 'ThemeIcon' |
