@@ -1,4 +1,4 @@
-import React, { Children } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { useTheme } from '../theme/ThemeContext';
 import { colors } from '../theme/colors';
@@ -8,9 +8,10 @@ import { IconName } from '../assets/Icons/IconTypes';
 
 export type OptionMenuProps = {
   icon: IconName;
-  isChecked: boolean;
+  isChecked?: boolean;
   children: React.ReactNode;
-  type: 'arrow' | 'check'
+  type: 'arrow' | 'check';
+  onClick: () => void;
 }
 
 const Container = styled.div`
@@ -29,11 +30,11 @@ const OptionText = styled.p`
   font-weight: ${fontWeights.light};
 `
 
-export const OptionMenu = ({children, icon, isChecked, type}:OptionMenuProps) => {
+export const OptionMenu = ({children, icon, isChecked, type, onClick}:OptionMenuProps) => {
   const theme = useTheme();
 
   return (
-    <Container theme={theme}>
+    <Container theme={theme} onClick={onClick}>
       <Icon name={icon} size='lg' background/>
         <OptionText>{children}</OptionText>
       {
