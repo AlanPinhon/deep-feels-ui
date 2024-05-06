@@ -28,7 +28,7 @@ export const ContainerInput = styled.div`
 `
 
 export const StyledInput = styled.input<InputProps>`
-  width: 348px;
+  width: 21.75rem;
   font-family: ${font.sans};
   font-size: ${fontSizes.p_sm};
   font-weight: ${fontWeights.light};

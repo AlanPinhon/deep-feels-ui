@@ -1,4 +1,5 @@
 export * from './ArrowLeftIcon';
+export * from './ArrowRightIcon';
 export * from './CameraIcon';
 export * from './CheckIcon';
 export * from './CompassIcon';
@@ -13,6 +14,8 @@ export * from './NextIcon';
 export * from './PauseIcon';
 export * from './PlayIcon';
 export * from './PrevIcon';
+export * from './RadioFill';
+export * from './RadioUnchecked';
 export * from './SearchIcon';
 export * from './SettingsIcon';
 export * from './ThemeIcon';
