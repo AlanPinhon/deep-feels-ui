@@ -19,28 +19,28 @@ export const XSmall: Story = {
 
 export const Small: Story = {
   args: {
-    name: 'HomeIcon',
+    name: 'CompassIcon',
     size: 'sm'
   }
 }
 
 export const Medium: Story = {
   args: {
-    name: 'HomeIcon',
+    name: 'SettingsIcon',
     size: 'md'
   }
 }
 
 export const Large: Story = {
   args: {
-    name: 'HomeIcon',
+    name: 'SearchIcon',
     size: 'lg'
   }
 }
 
 export const XLarge: Story = {
   args: {
-    name: 'HomeIcon',
+    name: 'HeartIcon',
     size: 'xl'
   }
 }

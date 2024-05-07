@@ -1,10 +1,5 @@
 import { iconSizes } from '../../theme/index';
 
-export type IconProps = {
-  size: keyof typeof iconSizes;
-  background?: boolean;
-}
-
 export type IconName = 
 'ArrowLeftIcon' |
 'ArrowRightIcon' |
@@ -28,3 +23,12 @@ export type IconName =
 'SettingsIcon' |
 'ThemeIcon' |
 'UserIcon';
+
+export type IconProps = {
+  name: IconName;
+  size: keyof typeof iconSizes;
+  background?: boolean;
+  selected?: boolean;
+  fill?: boolean;
+  styleVariant?: boolean;
+}
