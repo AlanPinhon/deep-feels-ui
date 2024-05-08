@@ -41,7 +41,7 @@ const Background = styled.div`
   background-color: ${props => (props.theme.theme === 'dark' ? colors.lightPurple[700] : colors.lightPurple[200] )};
 `
 
-export const Icon = ({name, size, background, selected, fill, styleVariant}:IconProps) => {
+export const Icon = ({name, size, background, selected, fill, styleVariant, onClick}:IconProps) => {
   const theme = useTheme();
   const Component = Icons[name];
 
@@ -53,6 +53,7 @@ export const Icon = ({name, size, background, selected, fill, styleVariant}:Icon
         selected={selected}
         styleVariant={styleVariant} 
         size={(iconSizes[size as string])}
+        onClick={onClick}
       />
     </Background>
   )
@@ -63,5 +64,6 @@ export const Icon = ({name, size, background, selected, fill, styleVariant}:Icon
     selected={selected}
     styleVariant={styleVariant} 
     size={(iconSizes[size as string])}
+    onClick={onClick}
   />
 }

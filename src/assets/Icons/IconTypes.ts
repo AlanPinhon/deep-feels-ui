@@ -31,4 +31,5 @@ export type IconProps = {
   selected?: boolean;
   fill?: boolean;
   styleVariant?: boolean;
+  onClick?: () => void;
 }

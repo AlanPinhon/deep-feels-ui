@@ -8,7 +8,7 @@ const meta:Meta <typeof Icon> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Icon>;
+type Story = StoryObj<IconProps>;
 
 export const XSmall: Story = {
   args: {
