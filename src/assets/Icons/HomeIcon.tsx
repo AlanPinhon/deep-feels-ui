@@ -3,11 +3,11 @@ import { useTheme } from '../../theme/ThemeContext';
 import { colors } from '../../theme/colors';
 import { IconProps } from './IconTypes';
 
-export const HomeIcon = ({size, selected}:IconProps) => {
+export const HomeIcon = ({size, selected, onClick}:IconProps) => {
   const theme = useTheme();
 
   return (
-    <svg data-icon='home' width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg data-icon='home' width={size} height={size} onClick={onClick} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="Navigation / House_01">
         <path 
           id="Vector" 

@@ -3,11 +3,11 @@ import { useTheme } from '../../theme/ThemeContext';
 import { colors } from '../../theme/colors';
 import { IconProps } from './IconTypes';
 
-export const HeartIcon = ({size, fill, selected, styleVariant}:IconProps) => {
+export const HeartIcon = ({size, fill, selected, styleVariant, onClick}:IconProps) => {
   const theme = useTheme();
 
   return (
-    <svg data-icon='heart' width={size} height={size} viewBox="0 0 24 24" fill={(fill && styleVariant) ? colors.red[300] : "none"} xmlns="http://www.w3.org/2000/svg">
+    <svg data-icon='heart' width={size} height={size} onClick={onClick} viewBox="0 0 24 24" fill={(fill && styleVariant) ? colors.red[300] : "none"} xmlns="http://www.w3.org/2000/svg">
       <g id="Interface / Heart_01">
         <path 
           id="Vector" 

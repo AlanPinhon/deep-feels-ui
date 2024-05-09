@@ -4,6 +4,7 @@ import { useTheme } from '../theme/ThemeContext';
 import { spaces } from '../theme/index';
 import { colors } from '../theme/colors';
 import { Icon } from './Icon';
+import { IconName } from '../assets/Icons/IconTypes';
 
 const StyledNavbar = styled.nav`
   width: 18.75rem;
