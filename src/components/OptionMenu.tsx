@@ -35,12 +35,12 @@ export const OptionMenu = ({children, icon, isChecked, type, onClick}:OptionMenu
 
   return (
     <Container theme={theme} onClick={onClick}>
-      <Icon name={icon} size='lg' background/>
+      <Icon name={icon} size='lg' background stroke={colors.purple[500]}/>
         <OptionText>{children}</OptionText>
       {
         (type === 'arrow')
-          ? <Icon name='ArrowRightIcon' size='lg'/>
-          : <Icon name={(isChecked) ? 'RadioFill' : 'RadioUnchecked'} size='lg'/>
+          ? <Icon name='ArrowRightIcon' size='lg' stroke={colors.purple[500]}/>
+          : <Icon name={(isChecked) ? 'RadioFill' : 'RadioUnchecked'} size='lg' stroke={colors.purple[500]}/>
       }
     </Container>
   )

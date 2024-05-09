@@ -66,7 +66,7 @@ export const Input = ({withIcon, placeholder, type, value, onChange}:InputProps)
         value={value} 
         onChange={onChange}
       />
-      {withIcon && <Icon name={withIcon} size='sm'/>}
+      {withIcon && <Icon name={withIcon} size='sm' stroke={colors.purple[500]}/>}
     </ContainerInput>
   )
 }
