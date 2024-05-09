@@ -3,7 +3,7 @@ import { useTheme } from '../theme/ThemeContext';
 import styled from 'styled-components';
 import { colors } from '../theme/colors';
 import { ArrowLeftIcon, ArrowRightIcon, CameraIcon, CheckIcon, CompassIcon, DarkIcon, ErrorIcon, HeartIcon, HomeIcon, LightIcon, LockIcon, MobileIcon, NextIcon, PauseIcon, PlayIcon, PrevIcon, RadioFill, RadioUnchecked, SearchIcon, SettingsIcon, ThemeIcon, UserIcon } from '../assets/Icons';
-import { IconProps, IconName } from '../assets/Icons/IconTypes';
+import { IconProps } from '../assets/Icons/IconTypes';
 import { iconSizes } from '../theme/index';
 
 const Icons = {
@@ -41,7 +41,7 @@ const Background = styled.div`
   background-color: ${props => (props.theme.theme === 'dark' ? colors.lightPurple[700] : colors.lightPurple[200] )};
 `
 
-export const Icon = ({name, size, background, selected, fill, styleVariant, onClick}:IconProps) => {
+export const Icon = ({name, size, background, fill, stroke}:IconProps) => {
   const theme = useTheme();
   const Component = Icons[name];
 
@@ -49,21 +49,17 @@ export const Icon = ({name, size, background, selected, fill, styleVariant, onCl
     <Background theme={theme}>
       <Component 
         name={name} 
-        fill={fill} 
-        selected={selected}
-        styleVariant={styleVariant} 
+        fill={fill}
+        stroke={stroke} 
         size={(iconSizes[size as string])}
-        onClick={onClick}
       />
     </Background>
   )
   
   return <Component 
     name={name} 
-    fill={fill} 
-    selected={selected}
-    styleVariant={styleVariant} 
+    fill={fill}
+    stroke={stroke}
     size={(iconSizes[size as string])}
-    onClick={onClick}
   />
 }

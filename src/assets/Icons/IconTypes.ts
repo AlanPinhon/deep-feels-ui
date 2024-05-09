@@ -28,8 +28,6 @@ export type IconProps = {
   name: IconName;
   size: keyof typeof iconSizes;
   background?: boolean;
-  selected?: boolean;
-  fill?: boolean;
-  styleVariant?: boolean;
-  onClick?: () => void;
+  fill?: string;
+  stroke: string;
 }
