@@ -36,7 +36,10 @@ export const Alert = ({children, type, withIcon}:AlertProps) => {
 
   return (
     <StyledAlert theme= {theme} type={type}>
-      <Icon name={withIcon} size='lg'/>
+      <Icon
+        name={withIcon} 
+        size='lg' 
+        stroke={colors.purple[500]}/>
       <StyledMsgAlert theme={theme}>{children}</StyledMsgAlert>
     </StyledAlert>
   )

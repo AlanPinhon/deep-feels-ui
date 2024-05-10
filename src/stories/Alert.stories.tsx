@@ -20,7 +20,7 @@ export const Success: Story = {
 export const Error: Story = {
   args: {
     children: 'Ocurrió un error',
-    type: 'success',
+    type: 'error',
     withIcon: 'ErrorIcon'
   }
 }
