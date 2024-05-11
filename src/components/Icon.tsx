@@ -2,7 +2,7 @@ import React from 'react';
 import { useTheme } from '../theme/ThemeContext';
 import styled from 'styled-components';
 import { colors } from '../theme/colors';
-import { ArrowLeftIcon, ArrowRightIcon, CameraIcon, CheckIcon, CompassIcon, DarkIcon, ErrorIcon, HeartIcon, HomeIcon, LightIcon, LockIcon, MobileIcon, NextIcon, PauseIcon, PlayIcon, PrevIcon, RadioFill, RadioUnchecked, SearchIcon, SettingsIcon, ThemeIcon, UserIcon } from '../assets/Icons';
+import { ArrowLeftIcon, ArrowRightIcon, CameraIcon, CheckIcon, CheckboxCheckIcon, CheckboxUncheckedIcon, CompassIcon, DarkIcon, ErrorIcon, HeartIcon, HomeIcon, LightIcon, LockIcon, MobileIcon, NextIcon, PauseIcon, PlayIcon, PrevIcon, RadioFill, RadioUnchecked, SearchIcon, SettingsIcon, ThemeIcon, UserIcon } from '../assets/Icons';
 import { IconProps } from '../assets/Icons/IconTypes';
 import { iconSizes } from '../theme/index';
 
@@ -11,6 +11,8 @@ const Icons = {
   ArrowRightIcon,
   CameraIcon,
   CheckIcon,
+  CheckboxCheckIcon,
+  CheckboxUncheckedIcon,
   CompassIcon,
   DarkIcon,
   ErrorIcon,
