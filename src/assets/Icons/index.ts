@@ -2,8 +2,6 @@ export * from './ArrowLeftIcon';
 export * from './ArrowRightIcon';
 export * from './CameraIcon';
 export * from './CheckIcon';
-export * from './CheckboxCheckIcon';
-export * from './CheckboxUncheckedIcon';
 export * from './CompassIcon';
 export * from './DarkIcon';
 export * from './ErrorIcon';

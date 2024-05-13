@@ -2,37 +2,63 @@ import React from 'react';
 import { useTheme } from '../theme/ThemeContext';
 import styled from 'styled-components';
 import { colors } from '../theme/colors';
-import { font, fontSizes, fontWeights, spaces } from '../theme/index';
-import { IconName } from '../assets/Icons/IconTypes';
-import { Icon } from './Icon';
+import { font, fontSizes, fontWeights } from '../theme/index';
 
 export type CheckboxProps = {
-  icon: IconName;
+  checked: boolean;
   children: React.ReactNode;
 }
 
-const Container = styled.div`
-  width: 7rem;
+const StyledLabel = styled.label`
   display: flex;
   align-items: center;
-  justify-content: center;
-`
-
-const CheckboxText = styled.p`
-  margin-left: ${spaces.md};
+  justify-content: space-between;
+  width: 6rem;
   font-family: ${font.sans};
   font-size: ${fontSizes.p_sm};
   font-weight: ${fontWeights.book};
   color: ${props => (props.theme.theme === 'dark') ? colors.neutralColors.white : colors.purple[500]};
 `
 
-export const Checkbox = ({icon, children}:CheckboxProps) => {
+const StyledCheckbox = styled.input`
+  display: none;
+`
+
+const CustomCheckbox = styled.span<CheckboxProps>`
+  position: relative;
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid ${props => (props.theme.theme === 'dark') ? colors.neutralColors.white : colors.purple[500]};
+  background-color: ${colors.neutralColors.transparent};
+  border-radius: 4px;
+  margin-right: 8px; 
+  cursor: pointer;
+
+
+  &::after {
+    content: "";
+    position: absolute;
+    display: ${props => props.checked ? 'block' : 'none'};
+    left: 5px;
+    top: 2px;
+    width: 4px;
+    height: 8px;
+    border: solid ${props => (props.theme.theme === 'dark') ? colors.neutralColors.white : colors.purple[500]};
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+`
+
+export const Checkbox = ({children, checked}:CheckboxProps) => {
   const theme = useTheme();
 
   return (
-    <Container theme={theme}>
-      <Icon name={icon} size='lg' stroke={colors.purple[500]} />
-      <CheckboxText theme={theme}>{children}</CheckboxText>
-    </Container>
+    <StyledLabel theme={theme}>
+      <CustomCheckbox theme={theme} checked={checked}>
+        <StyledCheckbox type='checkbox'/>
+      </CustomCheckbox>
+      {children}
+    </StyledLabel>
   )
 }

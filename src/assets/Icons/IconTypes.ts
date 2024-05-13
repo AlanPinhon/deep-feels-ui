@@ -5,8 +5,6 @@ export type IconName =
 'ArrowRightIcon' |
 'CameraIcon' |
 'CheckIcon' |
-'CheckboxCheckIcon' |
-'CheckboxUncheckedIcon' |
 'CompassIcon' |
 'DarkIcon' |
 'ErrorIcon' |

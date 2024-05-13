@@ -1,3 +1,4 @@
+import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import { Checkbox, CheckboxProps } from '../components/Checkbox';
 
@@ -9,16 +10,16 @@ export default meta;
 
 type Story = StoryObj<CheckboxProps>;
 
-export const Checked : Story = {
+export const Unchecked: Story = {
   args: {
-    children: 'Remind me',
-    icon: 'CheckboxCheckIcon',
+    checked: false,
+    children: 'Remind me'
   }
 }
 
-export const Unchecked : Story = {
+export const Checked: Story = {
   args: {
-    children: 'Remind me',
-    icon: 'CheckboxUncheckedIcon',
+    checked: true,
+    children: 'Remind me'
   }
 }
