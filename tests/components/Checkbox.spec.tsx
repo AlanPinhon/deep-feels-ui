@@ -1,40 +1,41 @@
-import React from 'react';
+import React, { ChangeEvent, useState } from 'react';
+import { userEvent } from '@testing-library/user-event';
 import { render } from '@testing-library/react';
-import { iconSizes } from '../../src/theme';
 import { Checkbox } from '../../src/components/Checkbox';
 
 describe('tests in <Checkbox/>', () => {
 
-  test('should should show the checkbox unchecked', () => { 
-
+  test('should show the checkbox unchecked', () => { 
     const checkboxText = 'Remind me';
-    const iconSize = 'lg';
+    const onChangeMock = jest.fn();
 
-    const { container } = render(<Checkbox children={checkboxText} icon='CheckboxUncheckedIcon'/>)
-    
-    const uncheckedIcon = container.querySelector('[data-icon="checkbox-unchecked"]') as SVGElement;
-    const width = uncheckedIcon.getAttribute('width');
-    const height = uncheckedIcon.getAttribute('height');
+    const { container } = render(<Checkbox children={checkboxText} checked={false} onChange={onChangeMock}/>);
 
-    expect(uncheckedIcon).toBeTruthy();
-    expect(width).toBe(iconSizes[iconSize]);
-    expect(height).toBe(iconSizes[iconSize]);
+    const checkbox = container.querySelector('input[type="checkbox"]') as HTMLInputElement;
+
+    expect(checkbox.checked).toBeFalsy();
   })
 
-  test('should should show the checkbox checked', () => { 
-
+  test('should change the checkbox from unchecked to checked', async () => { 
+    const user = userEvent.setup();
     const checkboxText = 'Remind me';
-    const iconSize = 'lg';
 
-    const { container } = render(<Checkbox children={checkboxText} icon='CheckboxCheckIcon'/>)
-    
-    const checkIcon = container.querySelector('[data-icon="checkbox-check"]') as SVGElement;
-    const width = checkIcon.getAttribute('width');
-    const height = checkIcon.getAttribute('height');
+    const TestComponent = () => {
+      const [isChecked, setIsChecked] = useState(false);
 
-    expect(checkIcon).toBeTruthy();
-    expect(width).toBe(iconSizes[iconSize]);
-    expect(height).toBe(iconSizes[iconSize]);
+      const handleInputCheck = ({target}:ChangeEvent<HTMLInputElement>) => {
+        const { checked } = target;
+        setIsChecked(checked);
+      }
+
+      return <Checkbox children={checkboxText} checked={isChecked} onChange={handleInputCheck}/>
+    }
+
+    const { container } = render(<TestComponent/>);
+
+    const checkbox = container.querySelector('input[type="checkbox"]') as HTMLInputElement;
+    await user.click(checkbox);
+    expect(checkbox.checked).toBeTruthy();
   })
 
 })

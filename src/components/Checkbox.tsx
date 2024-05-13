@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import { useTheme } from '../theme/ThemeContext';
 import styled from 'styled-components';
 import { colors } from '../theme/colors';
 import { font, fontSizes, fontWeights } from '../theme/index';
 
 export type CheckboxProps = {
-  checked: boolean;
-  children: React.ReactNode;
+  checked?: boolean;
+  children?: React.ReactNode;
+  onChange?: (arg:ChangeEvent<HTMLInputElement>) => void
 }
 
 const StyledLabel = styled.label`
@@ -20,7 +21,7 @@ const StyledLabel = styled.label`
   color: ${props => (props.theme.theme === 'dark') ? colors.neutralColors.white : colors.purple[500]};
 `
 
-const StyledCheckbox = styled.input`
+const StyledCheckbox = styled.input<CheckboxProps>`
   display: none;
 `
 
@@ -50,13 +51,13 @@ const CustomCheckbox = styled.span<CheckboxProps>`
   }
 `
 
-export const Checkbox = ({children, checked}:CheckboxProps) => {
+export const Checkbox = ({children, checked, onChange}:CheckboxProps) => {
   const theme = useTheme();
 
   return (
     <StyledLabel theme={theme}>
       <CustomCheckbox theme={theme} checked={checked}>
-        <StyledCheckbox type='checkbox'/>
+        <StyledCheckbox onChange={onChange} type='checkbox'/>
       </CustomCheckbox>
       {children}
     </StyledLabel>
