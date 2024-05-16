@@ -14,8 +14,7 @@ export const Header1: Story = {
   args: {
     children: 'Header 1',
     color: colors.darkPurple[500],
-    variant: 'h1',
-    weight: 'bold'
+    variant: 'h1'
   }
 }
 
@@ -23,8 +22,7 @@ export const Header2: Story = {
   args: {
     children: 'Header 2',
     color: colors.darkPurple[500],
-    variant: 'h2',
-    weight: 'bold'
+    variant: 'h2'
   }
 }
 
@@ -32,8 +30,7 @@ export const Header3: Story = {
   args: {
     children: 'Header 3',
     color: colors.darkPurple[500],
-    variant: 'h3',
-    weight: 'bold'
+    variant: 'h3'
   }
 }
 
@@ -41,8 +38,7 @@ export const LargeParagraph: Story = {
   args: {
     children: 'Large Paragraph',
     color: colors.purple[500],
-    variant: 'p_lg',
-    weight: 'light'
+    variant: 'lg'
   }
 }
 
@@ -50,8 +46,7 @@ export const MediumParagraph: Story = {
   args: {
     children: 'Medium Paragraph',
     color: colors.purple[500],
-    variant: 'p_md',
-    weight: 'light'
+    variant: 'md'
   }
 }
 
@@ -59,8 +54,7 @@ export const SmallParagraph: Story = {
   args: {
     children: 'Small Paragraph',
     color: colors.purple[500],
-    variant: 'p_sm',
-    weight: 'light'
+    variant: 'sm'
   }
 }
 
@@ -68,25 +62,22 @@ export const ExtraSmallParagraph: Story = {
   args: {
     children: 'Extra Small Paragraph',
     color: colors.purple[500],
-    variant: 'p_xs',
-    weight: 'bold'
+    variant: 'xs'
   }
 }
 
 export const Label: Story = {
   args: {
-    children: 'Label',
+    children: 'Label Text',
     color: colors.purple[500],
-    variant: 'p_sm',
-    weight: 'book'
+    variant: 'label'
   }
 }
 
 export const Alert: Story = {
   args: {
-    children: 'Alert',
+    children: 'Alert Text',
     color: colors.purple[500],
-    variant: 'alert',
-    weight: 'book'
+    variant: 'alert'
   }
 }

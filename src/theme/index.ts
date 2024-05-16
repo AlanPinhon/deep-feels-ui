@@ -39,14 +39,3 @@ export const fontWeights = {
   regular: '500',
   bold: '700',
 }
-
-export const tagNames = {
-  h1: 'h1',
-  h2: 'h2',
-  h3: 'h3',
-  lg: 'p',
-  md: 'p',
-  sm: 'p',
-  xs: 'p',
-  'alert': 'span'
-}
