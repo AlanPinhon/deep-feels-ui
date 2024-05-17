@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { colors } from '../../src/theme/colors';
 import { Text } from '../../src/components/Text';
 
@@ -7,7 +7,9 @@ describe('tests in <Text/>', () => {
 
   test('should render text correctly', () => { 
     const content = "I'm a paragraph";
-    const { container } = render(<Text color={colors.purple[500]}>{content}</Text>)
+    const variant = 'md';
+
+    const { container } = render(<Text variant={variant} color={colors.purple[500]}>{content}</Text>)
 
     const text = container.querySelector('p') as HTMLParagraphElement;
     expect(text).toBeTruthy();

@@ -8,8 +8,7 @@ export type TextProps = {
   children: React.ReactNode;
   color?: string;
   variant?: keyof typeof variantStyles;
-  component?: keyof JSX.IntrinsicElements;
-} & React.HTMLAttributes<HTMLElement>;
+}
 
 const element = {
   h1: "h1",
@@ -64,13 +63,13 @@ const variantStyles = {
 
 const StyledText = styled.p<TextProps>`
   font-family: ${font.sans};
-  color: ${(props => (props.theme.theme === 'dark') ? colors.neutralColors.white : props.color)};
+  color: ${(({theme, color}) => (theme.theme === 'dark') ? colors.neutralColors.white : color)};
   ${({ variant }) => variant && variantStyles[variant]}
 `
 
-export const Text = ({children, color, variant, component}:TextProps) => {
+export const Text = ({children, color, variant}:TextProps) => {
   const theme = useTheme();
-  const tagName = component || element[variant];
+  const tagName = element[variant];
 
   return (
    <StyledText as={tagName} theme={theme} color={color} variant={variant}>
