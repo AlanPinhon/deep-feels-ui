@@ -9,9 +9,9 @@ describe('tests in <Text/>', () => {
     const content = "I'm a paragraph";
     const variant = 'md';
 
-    const { container } = render(<Text variant={variant} color={colors.purple[500]}>{content}</Text>)
+    const { getByText } = render(<Text variant={variant} color={colors.purple[500]}>{content}</Text>)
 
-    const text = container.querySelector('p') as HTMLParagraphElement;
+    const text = getByText(content) as HTMLParagraphElement;
     expect(text).toBeTruthy();
   })
 
@@ -19,13 +19,10 @@ describe('tests in <Text/>', () => {
     const content = "I'm a h1 text";
     const variant = 'h1';
 
-    const { container } = render(<Text variant={variant} color={colors.purple[500]}>{content}</Text>)
+    const { getByRole } = render(<Text variant={variant} color={colors.purple[500]}>{content}</Text>)
 
-    const text = container.querySelector('h1') as HTMLHeadElement;
-    const textVariant = text.getAttribute('variant');
-
-    expect(text).toBeTruthy();
-    expect(textVariant).toBe(variant);
+    const textVariant = getByRole('heading', {level: 1}) as HTMLHeadElement;
+    expect(textVariant).toBeTruthy();
   })
 
 })

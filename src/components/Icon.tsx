@@ -46,7 +46,7 @@ export const Icon = ({name, size, background, fill, stroke}:IconProps) => {
   const Component = Icons[name];
 
   if(background) return (
-    <Background theme={theme}>
+    <Background data-testid='background-icon' theme={theme}>
       <Component 
         name={name} 
         fill={fill}
