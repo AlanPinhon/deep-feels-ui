@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { render } from '@testing-library/react';
-import { userEvent } from '@testing-library/user-event';
+import { fireEvent, render } from '@testing-library/react';
 import { OptionMenu } from '../../src/components/OptionMenu';
 
 describe('tests in <OptionMenu/>', () => {
@@ -37,8 +36,7 @@ describe('tests in <OptionMenu/>', () => {
 
   })
 
-  test('should change the check type option from unchecked icon to fill icon', async () => { 
-    const user = userEvent.setup();
+  test('should change the check type option from unchecked icon to fill icon', () => { 
 
     const TestComponent = () => {
 
@@ -62,7 +60,7 @@ describe('tests in <OptionMenu/>', () => {
     const { container , getByText } = render(<TestComponent/>);
 
     const optionCheck = getByText('Dark Mode') as HTMLDivElement;
-    await user.click(optionCheck);
+    fireEvent.click(optionCheck);
 
     const checkedIcon = container.querySelector("[data-icon='radio-fill']")
     expect(checkedIcon).toBeTruthy();

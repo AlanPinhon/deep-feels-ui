@@ -1,6 +1,5 @@
 import React, { ChangeEvent, useState } from 'react';
-import { userEvent } from '@testing-library/user-event';
-import { render } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import { Checkbox } from '../../src/components/Checkbox';
 
 describe('tests in <Checkbox/>', () => {
@@ -16,8 +15,7 @@ describe('tests in <Checkbox/>', () => {
     expect(checkbox.checked).toBeFalsy();
   })
 
-  test('should change the checkbox from unchecked to checked', async () => { 
-    const user = userEvent.setup();
+  test('should change the checkbox from unchecked to checked', () => { 
     const checkboxText = 'Remind me';
 
     const TestComponent = () => {
@@ -34,7 +32,7 @@ describe('tests in <Checkbox/>', () => {
     const { container } = render(<TestComponent/>);
 
     const checkbox = container.querySelector('input[type="checkbox"]') as HTMLInputElement;
-    await user.click(checkbox);
+    fireEvent.click(checkbox);
     expect(checkbox.checked).toBeTruthy();
   })
 
