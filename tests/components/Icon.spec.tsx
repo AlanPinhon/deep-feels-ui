@@ -45,10 +45,10 @@ describe('tests in <Icon/>', () => {
 
   test('should render icon with background', () => { 
     const size = 'lg';
-    const backgroundClassName = '.kzxzlF'
-    const { container } = render(<Icon name='MobileIcon' size={size} stroke={colors.purple[500]} background/>);
-    
-    const background = container.querySelector(backgroundClassName) as HTMLDivElement;
+
+    render(<Icon name='MobileIcon' size={size} stroke={colors.purple[500]} background/>);
+
+    const background = screen.getByTestId('background-icon') as HTMLDivElement;
     expect(background).toBeTruthy();
 
   })
