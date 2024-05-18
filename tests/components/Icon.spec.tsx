@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { Icon } from '../../src/components/Icon';
 import { iconSizes } from '../../src/theme';
 import { colors } from '../../src/theme/colors';
@@ -46,9 +46,9 @@ describe('tests in <Icon/>', () => {
   test('should render icon with background', () => { 
     const size = 'lg';
 
-    const { getByTestId } = render(<Icon name='MobileIcon' size={size} stroke={colors.purple[500]} background/>);
+    render(<Icon name='MobileIcon' size={size} stroke={colors.purple[500]} background/>);
 
-    const background = getByTestId('background-icon') as HTMLDivElement;
+    const background = screen.getByTestId('background-icon') as HTMLDivElement;
     expect(background).toBeTruthy();
 
   })

@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { colors } from '../../src/theme/colors';
 import { Text } from '../../src/components/Text';
 
@@ -9,9 +9,9 @@ describe('tests in <Text/>', () => {
     const content = "I'm a paragraph";
     const variant = 'md';
 
-    const { getByText } = render(<Text variant={variant} color={colors.purple[500]}>{content}</Text>)
+    render(<Text variant={variant} color={colors.purple[500]}>{content}</Text>)
 
-    const text = getByText(content) as HTMLParagraphElement;
+    const text = screen.getByText(content) as HTMLParagraphElement;
     expect(text).toBeTruthy();
   })
 
@@ -19,10 +19,10 @@ describe('tests in <Text/>', () => {
     const content = "I'm a h1 text";
     const variant = 'h1';
 
-    const { getByRole } = render(<Text variant={variant} color={colors.purple[500]}>{content}</Text>)
+    render(<Text variant={variant} color={colors.purple[500]}>{content}</Text>)
 
-    const textVariant = getByRole('heading', {level: 1}) as HTMLHeadElement;
-    expect(textVariant).toBeTruthy();
+    const text = screen.getByRole('heading', {name: content}) as HTMLHeadElement;
+    expect(text).toBeTruthy();
   })
 
 })

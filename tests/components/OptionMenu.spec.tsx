@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { OptionMenu } from '../../src/components/OptionMenu';
 
 describe('tests in <OptionMenu/>', () => {
@@ -57,9 +57,9 @@ describe('tests in <OptionMenu/>', () => {
       )
     }
 
-    const { container , getByText } = render(<TestComponent/>);
+    const { container } = render(<TestComponent/>);
 
-    const optionCheck = getByText('Dark Mode') as HTMLDivElement;
+    const optionCheck = screen.getByText('Dark Mode') as HTMLDivElement;
     fireEvent.click(optionCheck);
 
     const checkedIcon = container.querySelector("[data-icon='radio-fill']")
