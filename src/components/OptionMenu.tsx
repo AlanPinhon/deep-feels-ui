@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import styled from 'styled-components';
 import { useTheme } from '../theme/ThemeContext';
 import { colors } from '../theme/colors';
@@ -7,11 +7,11 @@ import { Icon } from './Icon';
 import { IconName } from '../assets/Icons/IconTypes';
 
 export type OptionMenuProps = {
-  icon: IconName;
-  isChecked?: boolean;
-  children: React.ReactNode;
-  type: 'arrow' | 'check';
-  onClick: () => void;
+  icon?: IconName;
+  checked?: boolean;
+  children?: React.ReactNode;
+  type?: 'arrow' | 'check';
+  onChange?: (arg:ChangeEvent<HTMLInputElement>) => void
 }
 
 const Container = styled.div`
@@ -30,17 +30,54 @@ const OptionText = styled.p`
   font-weight: ${fontWeights.light};
 `
 
-export const OptionMenu = ({children, icon, isChecked, type, onClick}:OptionMenuProps) => {
+const HiddenRadio = styled.input.attrs({type: 'radio'})`
+  display: none;
+`;
+
+const CustomRadio = styled.span<OptionMenuProps>`
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+
+  &:before {
+    content: '';
+    display: block;
+    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid ${props => (props.theme.theme === 'dark') ? colors.neutralColors.white : colors.purple[500]};
+    background: ${colors.neutralColors.transparent};
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    width: .5rem;
+    height: .5rem;
+    background: ${props => (props.theme.theme === 'dark') ? colors.neutralColors.white : colors.purple[500]};
+    position: absolute;
+    border-radius: 50%;
+    top: 6px;
+    left: 6px;
+    opacity: ${props => (props.checked) ? '1' : '0'};
+    transform: ${props => (props.checked) ? 'scale(1, 1)' : 'scale(0, 0)'};
+    transition: all 0.25s cubic-bezier(0.64, 0.57, 0.67, 1.53);
+  }
+`;
+
+export const OptionMenu = ({children, icon, checked, type, onChange}:OptionMenuProps) => {
   const theme = useTheme();
 
   return (
-    <Container theme={theme} onClick={onClick}>
+    <Container theme={theme}>
       <Icon name={icon} size='lg' background stroke={colors.purple[500]}/>
         <OptionText>{children}</OptionText>
       {
         (type === 'arrow')
           ? <Icon name='ArrowRightIcon' size='lg' stroke={colors.purple[500]}/>
-          : <Icon name={(isChecked) ? 'RadioFill' : 'RadioUnchecked'} size='lg' stroke={colors.purple[500]}/>
+          : <CustomRadio theme={theme} checked={checked}>
+              <HiddenRadio onChange={onChange}/>
+            </CustomRadio>
       }
     </Container>
   )
