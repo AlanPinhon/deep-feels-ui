@@ -10,6 +10,7 @@ export type OptionMenuProps = {
   icon?: IconName;
   checked?: boolean;
   children?: React.ReactNode;
+  name?: string;
   type?: 'arrow' | 'check';
   onChange?: (arg:ChangeEvent<HTMLInputElement>) => void
 }
@@ -65,7 +66,7 @@ const CustomRadio = styled.span<OptionMenuProps>`
   }
 `;
 
-export const OptionMenu = ({children, icon, checked, type, onChange}:OptionMenuProps) => {
+export const OptionMenu = ({children, icon, checked, name, type, onChange}:OptionMenuProps) => {
   const theme = useTheme();
 
   return (
@@ -76,7 +77,7 @@ export const OptionMenu = ({children, icon, checked, type, onChange}:OptionMenuP
         (type === 'arrow')
           ? <Icon name='ArrowRightIcon' size='lg' stroke={colors.purple[500]}/>
           : <CustomRadio theme={theme} checked={checked}>
-              <HiddenRadio onChange={onChange}/>
+              <HiddenRadio name={name} onChange={onChange} checked={checked} />
             </CustomRadio>
       }
     </Container>

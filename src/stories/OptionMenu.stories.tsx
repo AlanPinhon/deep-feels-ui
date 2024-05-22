@@ -22,6 +22,7 @@ export const Check : Story = {
     type: 'check',
     icon: 'LightIcon', 
     children: 'Option Check Menu',
-    checked: true
+    checked: true,
+    name: 'theme'
   }
 }
