@@ -19,9 +19,10 @@ export const Arrow : Story = {
 
 export const Check : Story = {
   args: {
-    type: 'check',
+    type: 'radio',
     icon: 'LightIcon', 
     children: 'Option Check Menu',
-    isChecked: true
+    checked: true,
+    name: 'theme'
   }
 }
