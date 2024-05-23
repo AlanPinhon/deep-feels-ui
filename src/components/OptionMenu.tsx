@@ -8,10 +8,11 @@ import { IconName } from '../assets/Icons/IconTypes';
 
 export type OptionMenuProps = {
   icon?: IconName;
+  id?: string;
   checked?: boolean;
   children?: React.ReactNode;
   name?: string;
-  type?: 'arrow' | 'check';
+  type?: 'arrow' | 'radio';
   onChange?: (arg:ChangeEvent<HTMLInputElement>) => void
 }
 
@@ -23,7 +24,7 @@ const Container = styled.div`
   padding: ${spaces.sm} ${spaces.lg};
 `
 
-const OptionText = styled.p`
+const OptionText = styled.label`
   width: 12.75rem;
   color: ${props => (props.theme.theme === 'dark') ? colors.neutralColors.white : colors.purple[500]};
   font-family: ${font.sans};
@@ -32,7 +33,9 @@ const OptionText = styled.p`
 `
 
 const HiddenRadio = styled.input.attrs({type: 'radio'})`
-  display: none;
+  opacity: 0;
+  position: absolute;
+  z-index: -10;
 `;
 
 const CustomRadio = styled.span<OptionMenuProps>`
@@ -66,18 +69,18 @@ const CustomRadio = styled.span<OptionMenuProps>`
   }
 `;
 
-export const OptionMenu = ({children, icon, checked, name, type, onChange}:OptionMenuProps) => {
+export const OptionMenu = ({children, icon, id, checked, name, type, onChange}:OptionMenuProps) => {
   const theme = useTheme();
 
   return (
-    <Container theme={theme}>
+    <Container data-testid={`option-${type}`} theme={theme}>
       <Icon name={icon} size='lg' background stroke={colors.purple[500]}/>
-        <OptionText>{children}</OptionText>
+        <OptionText htmlFor={id}>{children}</OptionText>
       {
         (type === 'arrow')
           ? <Icon name='ArrowRightIcon' size='lg' stroke={colors.purple[500]}/>
           : <CustomRadio theme={theme} checked={checked}>
-              <HiddenRadio name={name} onChange={onChange} checked={checked} />
+              <HiddenRadio id={id} name={name} onChange={onChange} checked={checked} />
             </CustomRadio>
       }
     </Container>
