@@ -7,6 +7,7 @@ import { fontSizes, fontWeights, font } from '../theme/index';
 export type TextProps = {
   children: React.ReactNode;
   color?: string;
+  htmlFor?: string;
   variant?: keyof typeof variantStyles;
 }
 
@@ -18,7 +19,7 @@ const element = {
   md: "p",
   sm: "p",
   xs: "p",
-  label: "p",
+  label: "label",
   alert: "span",
 }
 
@@ -67,12 +68,12 @@ const StyledText = styled.p<TextProps>`
   ${({ variant }) => variant && variantStyles[variant]}
 `
 
-export const Text = ({children, color, variant}:TextProps) => {
+export const Text = ({children, color, htmlFor, variant}:TextProps) => {
   const theme = useTheme();
   const tagName = element[variant];
 
   return (
-   <StyledText as={tagName} theme={theme} color={color} variant={variant}>
+   <StyledText as={tagName} htmlFor={htmlFor} theme={theme} color={color} variant={variant}>
       {children}
    </StyledText>
   )
