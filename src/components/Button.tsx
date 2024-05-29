@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTheme } from '../theme/ThemeContext';
-import styled from 'styled-components';
+import styled, { DefaultTheme } from 'styled-components';
 import { colors } from '../theme/colors';
 import { font, fontSizes, fontWeights, spaces } from '../theme/index';
 
@@ -22,7 +22,7 @@ const baseStyle = `
   border: none;
 `;
 
-const primaryStyles = (theme: any) => `
+const primaryStyles = (theme: DefaultTheme) => `
   background-color: ${(theme.theme === 'dark') ? colors.lightPurple[600] : colors.purple[500]};
   color: ${ colors.neutralColors.white };
 
@@ -31,7 +31,7 @@ const primaryStyles = (theme: any) => `
   };
 `;
 
-const errorStyles = (theme: any) => `
+const errorStyles = (theme: DefaultTheme) => `
   background-color: ${colors.neutralColors.white};
   color: ${(theme.theme === 'dark') ? colors.red[300] : colors.red[500]};
   border: 1px solid ${(theme.theme === 'dark') ? colors.red[300] : colors.red[500]};
@@ -42,7 +42,7 @@ const errorStyles = (theme: any) => `
   };
 `;
 
-const disabledStyles = (theme: any) => `
+const disabledStyles = (theme: DefaultTheme) => `
   &:disabled {
     background-color: ${(theme.theme === 'dark') ? colors.purple[700] : colors.lightPurple[200] };
     color: ${(theme.theme === 'dark') ? colors.purple[500] : colors.neutralColors.white };
