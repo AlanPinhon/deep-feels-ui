@@ -36,18 +36,18 @@ const CustomCheckbox = styled.span<CheckboxProps>`
   margin-right: 8px; 
   cursor: pointer;
 
-
   &::after {
     content: "";
     position: absolute;
-    display: ${props => props.checked ? 'block' : 'none'};
+    opacity: ${props => props.checked ? 1 : 0};
     left: 5px;
     top: 2px;
     width: 4px;
     height: 8px;
     border: solid ${props => (props.theme.theme === 'dark') ? colors.neutralColors.white : colors.purple[500]};
     border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
+    transform: ${props => (props.checked) ? 'rotate(45deg) scale(1, 1)' : 'rotate(15deg) scale(0, 0)'};
+    transition: all 0.15s cubic-bezier(0.64, 0.57, 0.67, 1.53);
   }
 `
 
