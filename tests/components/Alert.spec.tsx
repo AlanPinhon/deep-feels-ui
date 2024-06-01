@@ -14,7 +14,7 @@ describe('tests in <Alert/>', () => {
       <Alert
         children={alertMsg}
         type='success'
-        withIcon='CheckIcon'
+        icon='CheckIcon'
       />
     );
     
@@ -39,7 +39,7 @@ describe('tests in <Alert/>', () => {
       <Alert
         children={alertMsg}
         type='error'
-        withIcon='ErrorIcon'
+        icon='ErrorIcon'
       />
     );
     
