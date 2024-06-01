@@ -37,7 +37,10 @@ export const Alert = ({children, type, icon}:AlertProps) => {
   return (
     <StyledAlert role='alert' theme={theme} type={type}>
       <Icon name={icon}  size='lg'  stroke={(icon === 'ErrorIcon') ? setErrorStyles(theme) : setCheckStyles(theme)}/>
-      <Text color={(theme.theme === 'dark') ? colors.neutralColors.white : colors.purple[500]} variant='alert'>
+      <Text 
+        margin='0 0 0 .5rem'
+        variant='alert'
+        color={(theme.theme === 'dark') ? colors.neutralColors.white : colors.purple[500]}>
         {children}
       </Text>
     </StyledAlert>
