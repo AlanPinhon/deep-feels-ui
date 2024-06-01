@@ -13,7 +13,7 @@ export const Success: Story = {
   args: {
     children: '¡Email enviado!',
     type: 'success',
-    withIcon: 'CheckIcon'
+    icon: 'CheckIcon'
   }
 }
 
@@ -21,6 +21,6 @@ export const Error: Story = {
   args: {
     children: 'Ocurrió un error',
     type: 'error',
-    withIcon: 'ErrorIcon'
+    icon: 'ErrorIcon'
   }
 }
