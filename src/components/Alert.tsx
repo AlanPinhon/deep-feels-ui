@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTheme } from '../theme/ThemeContext';
 import styled, { DefaultTheme } from 'styled-components';
 import { colors } from '../theme/colors';
@@ -8,17 +8,22 @@ import { Icon } from './Icon';
 import { Text } from './Text';
 
 export type AlertProps = {
-  icon?: 'CheckIcon' | 'ErrorIcon';
+  duration: number;
+  icon?: Extract<IconName, 'CheckIcon' | 'ErrorIcon'>;
   children: React.ReactNode;
-  type?: 'success' | 'error';
+  type: 'success' | 'error';
 }
 
-const setCheckStyles = (theme: DefaultTheme) => `
+const setCheckColor = (theme: DefaultTheme) => `
   ${(theme.theme === 'dark') ? colors.green[300] : colors.green[500]}
 `;
 
-const setErrorStyles = (theme: DefaultTheme) => `
+const setErrorColor = (theme: DefaultTheme) => `
   ${(theme.theme === 'dark') ? colors.red[300] : colors.red[500]}
+`;
+
+const setTextColor = (theme: DefaultTheme) => `
+  ${(theme.theme === 'dark') ? colors.neutralColors.white : colors.purple[500]}
 `;
 
 export const StyledAlert = styled.div<AlertProps>`
@@ -29,18 +34,31 @@ export const StyledAlert = styled.div<AlertProps>`
   border-radius: ${spaces.md};
   background-color: ${props => (props.theme.theme === 'dark') ? colors.lightPurple[700] : colors.neutralColors.white};
   filter: drop-shadow(2px 2px 4px ${colors.neutralColors.shadow});
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+
+  &.active {
+    opacity: 1;
+  }
 `
 
-export const Alert = ({children, type, icon}:AlertProps) => {
+export const Alert = ({children, type, icon, duration = 5000}:AlertProps) => {
   const theme = useTheme();
 
+  const [className, setClassName] = useState('active');
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setClassName('');
+    }, duration);
+
+    return () => clearTimeout(timer);
+  }, [duration]);  
+
   return (
-    <StyledAlert role='alert' theme={theme} type={type}>
-      <Icon name={icon}  size='lg'  stroke={(icon === 'ErrorIcon') ? setErrorStyles(theme) : setCheckStyles(theme)}/>
-      <Text 
-        margin='0 0 0 .5rem'
-        variant='alert'
-        color={(theme.theme === 'dark') ? colors.neutralColors.white : colors.purple[500]}>
+    <StyledAlert role='alert' theme={theme} type={type} duration={duration} className={className}>
+      <Icon name={icon} size='lg' stroke={(icon === 'ErrorIcon') ? setErrorColor(theme) : setCheckColor(theme)}/>
+      <Text variant='alert' color={setTextColor(theme)} style={{ marginLeft: '.5rem' }}>
         {children}
       </Text>
     </StyledAlert>

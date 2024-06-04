@@ -7,9 +7,8 @@ import { fontSizes, fontWeights, font } from '../theme/index';
 export type TextProps = {
   children: React.ReactNode;
   color?: string;
-  margin?: string;
-  padding?: string;
   htmlFor?: string;
+  style?: React.CSSProperties;
   variant?: keyof typeof variantStyles;
 }
 
@@ -66,25 +65,16 @@ const variantStyles = {
 
 const StyledText = styled.p<TextProps>`
   font-family: ${font.sans};
-  margin: ${({ margin }) => margin || '0'};
-  padding: ${({ padding }) => padding || '0'};
   color: ${(({theme, color}) => (theme.theme === 'dark') ? colors.neutralColors.white : color)};
   ${({ variant }) => variant && variantStyles[variant]}
 `
 
-export const Text = ({children, color, htmlFor, margin, padding, variant}:TextProps) => {
+export const Text = ({children, color, htmlFor, style, variant}:TextProps) => {
   const theme = useTheme();
   const tagName = element[variant];
 
   return (
-   <StyledText 
-    as={tagName} 
-    htmlFor={htmlFor} 
-    theme={theme} 
-    color={color} 
-    margin={margin}
-    padding={padding}
-    variant={variant}>
+   <StyledText as={tagName} htmlFor={htmlFor} theme={theme} color={color} variant={variant} style={style}>
       {children}
    </StyledText>
   )
