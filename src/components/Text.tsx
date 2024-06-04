@@ -8,6 +8,7 @@ export type TextProps = {
   children: React.ReactNode;
   color?: string;
   htmlFor?: string;
+  style?: React.CSSProperties;
   variant?: keyof typeof variantStyles;
 }
 
@@ -68,12 +69,12 @@ const StyledText = styled.p<TextProps>`
   ${({ variant }) => variant && variantStyles[variant]}
 `
 
-export const Text = ({children, color, htmlFor, variant}:TextProps) => {
+export const Text = ({children, color, htmlFor, style, variant}:TextProps) => {
   const theme = useTheme();
   const tagName = element[variant];
 
   return (
-   <StyledText as={tagName} htmlFor={htmlFor} theme={theme} color={color} variant={variant}>
+   <StyledText as={tagName} htmlFor={htmlFor} theme={theme} color={color} variant={variant} style={style}>
       {children}
    </StyledText>
   )
