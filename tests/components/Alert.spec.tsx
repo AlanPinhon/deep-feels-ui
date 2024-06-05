@@ -12,6 +12,7 @@ describe('tests in <Alert/>', () => {
 
     const { container } = render (
       <Alert
+        duration={2000}
         children={alertMsg}
         type='success'
         icon='CheckIcon'
@@ -37,6 +38,7 @@ describe('tests in <Alert/>', () => {
 
     const { container } = render (
       <Alert
+       duration={3000}
         children={alertMsg}
         type='error'
         icon='ErrorIcon'
