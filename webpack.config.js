@@ -14,6 +14,7 @@ module.exports = {
     path: path.resolve(__dirname, 'build'),
     filename: 'index.js',
     library: {
+      name: 'DeepFeelsUI',
       type: 'module',
     }
   },
