@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useTheme } from '../theme/ThemeContext';
 import { colors } from '../theme/colors';
 import { fontSizes, fontWeights, font } from '../theme/index';
+import { setThemeColor } from '../theme/setThemeColor';
 
 export type TextProps = {
   children: React.ReactNode;
@@ -65,7 +66,7 @@ const variantStyles = {
 
 const StyledText = styled.p<TextProps>`
   font-family: ${font.sans};
-  color: ${(({theme, color}) => (theme.theme === 'dark') ? colors.neutralColors.white : color)};
+  color: ${(({theme, color}) => setThemeColor(theme, colors.neutralColors.white, color))};
   ${({ variant }) => variant && variantStyles[variant]}
 `
 

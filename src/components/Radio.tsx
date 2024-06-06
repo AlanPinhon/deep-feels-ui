@@ -2,6 +2,7 @@ import React, { ChangeEvent } from 'react';
 import styled from 'styled-components';
 import { useTheme } from '../theme/ThemeContext';
 import { colors } from '../theme/colors';
+import { setThemeColor } from '../theme/setThemeColor';
 
 export type RadioProps = {
   id?: string;
@@ -27,7 +28,7 @@ const CustomRadio = styled.span<RadioProps>`
     border-radius: 50%;
     width: 1rem;
     height: 1rem;
-    border: 2px solid ${props => (props.theme.theme === 'dark') ? colors.neutralColors.white : colors.purple[500]};
+    border: 2px solid ${({theme}) => setThemeColor(theme, colors.neutralColors.white, colors.purple[500])};
     background: ${colors.neutralColors.transparent};
   }
 
@@ -36,13 +37,13 @@ const CustomRadio = styled.span<RadioProps>`
     display: block;
     width: .5rem;
     height: .5rem;
-    background: ${props => (props.theme.theme === 'dark') ? colors.neutralColors.white : colors.purple[500]};
+    background: ${({theme}) => setThemeColor(theme, colors.neutralColors.white, colors.purple[500])};
     position: absolute;
     border-radius: 50%;
     top: 6px;
     left: 6px;
-    opacity: ${props => (props.checked) ? '1' : '0'};
-    transform: ${props => (props.checked) ? 'scale(1, 1)' : 'scale(0, 0)'};
+    opacity: ${props => props.checked ? '1' : '0'};
+    transform: ${props => props.checked ? 'scale(1, 1)' : 'scale(0, 0)'};
     transition: all 0.25s cubic-bezier(0.64, 0.57, 0.67, 1.53);
   }
 `;

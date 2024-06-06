@@ -3,6 +3,7 @@ import { useTheme } from '../theme/ThemeContext';
 import styled, { DefaultTheme } from 'styled-components';
 import { colors } from '../theme/colors';
 import { font, fontSizes, fontWeights, spaces } from '../theme/index';
+import { setThemeColor } from '../theme/setThemeColor';
 
 export type ButtonProps = {
   children: React.ReactNode,
@@ -23,34 +24,34 @@ const baseStyle = `
 `;
 
 const primaryStyles = (theme: DefaultTheme) => `
-  background-color: ${(theme.theme === 'dark') ? colors.lightPurple[600] : colors.purple[500]};
+  background-color: ${setThemeColor(theme, colors.lightPurple[600], colors.purple[500])};
   color: ${ colors.neutralColors.white };
 
   &:hover {
-    background-color: ${(theme.theme === 'dark') ? colors.lightPurple[400] : colors.purple[700]};
+    background-color: ${setThemeColor(theme, colors.lightPurple[400], colors.purple[700])};
   };
 `;
 
 const errorStyles = (theme: DefaultTheme) => `
-  background-color: ${colors.neutralColors.white};
-  color: ${(theme.theme === 'dark') ? colors.red[300] : colors.red[500]};
-  border: 1px solid ${(theme.theme === 'dark') ? colors.red[300] : colors.red[500]};
+  background-color: ${colors.neutralColors.transparent};
+  color: ${setThemeColor(theme, colors.red[300], colors.red[500])};
+  border: 1px solid ${setThemeColor(theme, colors.red[300], colors.red[500])};
 
   &:hover {
-    background-color: ${(theme.theme === 'dark') ? colors.red[300] : colors.red[500]};
+    background-color: ${setThemeColor(theme, colors.red[300], colors.red[500])};
     color: ${colors.neutralColors.white};
   };
 `;
 
 const disabledStyles = (theme: DefaultTheme) => `
   &:disabled {
-    background-color: ${(theme.theme === 'dark') ? colors.purple[700] : colors.lightPurple[200] };
-    color: ${(theme.theme === 'dark') ? colors.purple[500] : colors.neutralColors.white };
+    background-color: ${setThemeColor(theme, colors.purple[700], colors.lightPurple[200])};
+    color: ${setThemeColor(theme, colors.purple[500], colors.neutralColors.white)};
     cursor: not-allowed;
   }
 `;
 
-export const StyledButton = styled.button<ButtonProps>`
+const StyledButton = styled.button<ButtonProps>`
   ${baseStyle}
   ${props => (props.variant === 'primary') && primaryStyles(props.theme)}
   ${props => (props.variant === 'error') && errorStyles(props.theme)}
