@@ -7,6 +7,7 @@ import { IconName } from '../assets/Icons/IconTypes';
 import { Icon } from './Icon';
 
 export type InputProps = {
+  className?: string;
   withIcon?: IconName;
   placeholder?: string;
   type: 'text' | 'password' | 'email';
@@ -25,6 +26,14 @@ export const ContainerInput = styled.div`
   border: 1px solid ${props => (props.theme.theme === 'dark') ? colors.neutralColors.white : colors.lightPurple[700] };
   border-radius: ${spaces.sm};
   filter: drop-shadow(2px 2px 4px ${colors.neutralColors.shadow});
+
+  &.error {
+    border-color: ${props => (props.theme.theme === 'dark') ? colors.red[300] : colors.red[500] };
+  }
+
+  &.success {
+    border-color: ${props => (props.theme.theme === 'dark') ? colors.green[300] : colors.green[500] };
+  }
 `
 
 export const StyledInput = styled.input<InputProps>`
@@ -44,21 +53,13 @@ export const StyledInput = styled.input<InputProps>`
   &::placeholder {
     color: ${props => (props.theme.theme === 'dark') ? colors.lightPurple[500] : colors.lightPurple[300] };
   }
-
-  &.error {
-    border-color: ${props => (props.theme.theme === 'dark') ? colors.red[300] : colors.red[500] };
-  }
-
-  &.success {
-    border-color: ${props => (props.theme.theme === 'dark') ? colors.green[300] : colors.green[500] };
-  }
 `
 
-export const Input = ({withIcon, placeholder, type, value, onChange}:InputProps) => {
+export const Input = ({className, withIcon, placeholder, type, value, onChange}:InputProps) => {
   const theme = useTheme();
  
   return (
-    <ContainerInput theme={theme}>
+    <ContainerInput theme={theme} className={className}>
       <StyledInput
         type={type} 
         placeholder={placeholder}
@@ -66,7 +67,7 @@ export const Input = ({withIcon, placeholder, type, value, onChange}:InputProps)
         value={value} 
         onChange={onChange}
       />
-      {withIcon && <Icon name={withIcon} size='sm' stroke={colors.purple[500]}/>}
+      {withIcon && <Icon name={withIcon} size='sm' stroke={(theme.theme === 'dark') ? colors.neutralColors.white : colors.purple[500]}/>}
     </ContainerInput>
   )
 }
