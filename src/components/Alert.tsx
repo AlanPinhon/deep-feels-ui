@@ -6,6 +6,7 @@ import { spaces } from '../theme/index';
 import { IconName } from '../assets/Icons/IconTypes';
 import { Icon } from './Icon';
 import { Text } from './Text';
+import { setThemeColor } from '../theme/setThemeColor';
 
 export type AlertProps = {
   duration: number;
@@ -14,25 +15,19 @@ export type AlertProps = {
   type: 'success' | 'error';
 }
 
-const setCheckColor = (theme: DefaultTheme) => `
-  ${(theme.theme === 'dark') ? colors.green[300] : colors.green[500]}
-`;
+const setCheckColor = (theme: DefaultTheme) => setThemeColor(theme, colors.green[300], colors.green[500]);
 
-const setErrorColor = (theme: DefaultTheme) => `
-  ${(theme.theme === 'dark') ? colors.red[300] : colors.red[500]}
-`;
+const setErrorColor = (theme: DefaultTheme) => setThemeColor(theme, colors.red[300], colors.red[500]);
 
-const setTextColor = (theme: DefaultTheme) => `
-  ${(theme.theme === 'dark') ? colors.neutralColors.white : colors.purple[500]}
-`;
+const setTextColor = (theme: DefaultTheme) => setThemeColor(theme, colors.neutralColors.white, colors.purple[500]);
 
-export const StyledAlert = styled.div<AlertProps>`
+const StyledAlert = styled.div<AlertProps>`
   display: flex;
   align-items: center;
   width: 9.875rem;
   padding: ${spaces.md} ${spaces.lg};
   border-radius: ${spaces.md};
-  background-color: ${props => (props.theme.theme === 'dark') ? colors.lightPurple[700] : colors.neutralColors.white};
+  background-color: ${({theme}) => setThemeColor(theme, colors.lightPurple[700], colors.neutralColors.white)};
   filter: drop-shadow(2px 2px 4px ${colors.neutralColors.shadow});
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
