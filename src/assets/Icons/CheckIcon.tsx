@@ -1,10 +1,10 @@
 import React from 'react';
 import { IconProps } from './IconTypes';
 
-export const CheckIcon = ({size, stroke}:IconProps) => {
+export const CheckIcon = ({style, size, stroke}:IconProps) => {
 
   return (
-    <svg data-icon='check' width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg data-icon='check' style={style} width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="Warning / Circle_Check">
         <path 
           id="Vector" 

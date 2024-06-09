@@ -11,12 +11,18 @@ type Story = StoryObj<RadioProps>;
 
 export const Unchecked : Story = {
   args: {
-    checked: false
+    checked: false,
+    style: {
+      "margin" : "0 3rem"
+    }    
   }
 }
 
 export const Checked : Story = {
   args: {
-    checked: true
+    checked: true,
+      style: {
+        "margin" : "0 3rem"
+      }
   }
 }

@@ -1,10 +1,10 @@
 import React from 'react';
 import { IconProps } from './IconTypes';
 
-export const RadioFill = ({size, stroke}:IconProps) => {
+export const RadioFill = ({style, size, stroke}:IconProps) => {
 
   return (
-    <svg data-icon='radio-fill' width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg data-icon='radio-fill' style={style} width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="Interface / Radio_Fill">
         <g id="Vector">
           <path 

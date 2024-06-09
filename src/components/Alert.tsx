@@ -13,6 +13,7 @@ export type AlertProps = {
   icon?: Extract<IconName, 'CheckIcon' | 'ErrorIcon'>;
   children: React.ReactNode;
   type: 'success' | 'error';
+  style?: React.CSSProperties;
 }
 
 const setCheckColor = (theme: DefaultTheme) => setThemeColor(theme, colors.green[300], colors.green[500]);
@@ -37,7 +38,7 @@ const StyledAlert = styled.div<AlertProps>`
   }
 `
 
-export const Alert = ({children, type, icon, duration = 5000}:AlertProps) => {
+export const Alert = ({children, style, type, icon, duration = 5000}:AlertProps) => {
   const theme = useTheme();
 
   const [className, setClassName] = useState('active');
@@ -51,7 +52,7 @@ export const Alert = ({children, type, icon, duration = 5000}:AlertProps) => {
   }, [duration]);  
 
   return (
-    <StyledAlert role='alert' theme={theme} type={type} duration={duration} className={className}>
+    <StyledAlert style={style} role='alert' theme={theme} type={type} duration={duration} className={className}>
       <Icon name={icon} size='lg' stroke={(icon === 'ErrorIcon') ? setErrorColor(theme) : setCheckColor(theme)}/>
       <Text variant='alert' color={setTextColor(theme)} style={{ marginLeft: '.5rem' }}>
         {children}

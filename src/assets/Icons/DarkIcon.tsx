@@ -1,10 +1,10 @@
 import React from 'react';;
 import { IconProps } from './IconTypes';
 
-export const DarkIcon = ({size, stroke}:IconProps) => {
+export const DarkIcon = ({style, size, stroke}:IconProps) => {
 
   return (
-    <svg data-icon='dark' width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg data-icon='dark' style={style} width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="Environment / Moon">
         <path 
           id="Vector" 

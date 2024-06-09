@@ -41,12 +41,12 @@ const Background = styled.div`
   background-color: ${props => (props.theme.theme === 'dark' ? colors.lightPurple[700] : colors.lightPurple[200] )};
 `
 
-export const Icon = ({name, size, background, fill, stroke}:IconProps) => {
+export const Icon = ({name, size, background, fill, stroke, style}:IconProps) => {
   const theme = useTheme();
   const Component = Icons[name];
 
   if(background) return (
-    <Background data-testid='background-icon' theme={theme}>
+    <Background style={style} data-testid='background-icon' theme={theme}>
       <Component 
         name={name} 
         fill={fill}
@@ -57,6 +57,7 @@ export const Icon = ({name, size, background, fill, stroke}:IconProps) => {
   )
   
   return <Component 
+    style={style}
     name={name} 
     fill={fill}
     stroke={stroke}

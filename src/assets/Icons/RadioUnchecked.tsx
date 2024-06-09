@@ -1,10 +1,10 @@
 import React from 'react';
 import { IconProps } from './IconTypes';
 
-export const RadioUnchecked = ({size, stroke}:IconProps) => {
+export const RadioUnchecked = ({style, size, stroke}:IconProps) => {
 
   return (
-    <svg data-icon='radio-unchecked' width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg data-icon='radio-unchecked' style={style} width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="Interface / Radio_Unchecked">
         <path 
           id="Vector" 

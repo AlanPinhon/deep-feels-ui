@@ -13,13 +13,17 @@ type Story = StoryObj<CheckboxProps>;
 export const Unchecked: Story = {
   args: {
     checked: false,
-    children: 'Remind me'
+    style: {
+      "margin" : "0 2rem"
+    }
   }
 }
 
 export const Checked: Story = {
   args: {
     checked: true,
-    children: 'Remind me'
+    style: {
+      "margin" : "0 2rem"
+    }
   }
 }

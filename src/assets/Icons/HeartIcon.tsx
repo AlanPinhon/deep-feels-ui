@@ -1,10 +1,10 @@
 import React from 'react';
 import { IconProps } from './IconTypes';
 
-export const HeartIcon = ({size, fill, stroke}:IconProps) => {
+export const HeartIcon = ({style, size, fill, stroke}:IconProps) => {
 
   return (
-    <svg data-icon='heart' width={size} height={size} viewBox="0 0 24 24" fill={fill} xmlns="http://www.w3.org/2000/svg">
+    <svg data-icon='heart' style={style} width={size} height={size} viewBox="0 0 24 24" fill={fill} xmlns="http://www.w3.org/2000/svg">
       <g id="Interface / Heart_01">
         <path 
           id="Vector" 
