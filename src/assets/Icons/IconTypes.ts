@@ -30,4 +30,5 @@ export type IconProps = {
   background?: boolean;
   fill?: string;
   stroke: string;
+  style?: React.CSSProperties;
 }

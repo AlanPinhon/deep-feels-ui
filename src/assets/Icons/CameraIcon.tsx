@@ -1,10 +1,10 @@
 import React from 'react';
 import { IconProps } from './IconTypes';
 
-export const CameraIcon = ({size, stroke}:IconProps) => {
+export const CameraIcon = ({style, size, stroke}:IconProps) => {
 
   return (
-    <svg data-icon='camera' width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg data-icon='camera' style={style} width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="System / Camera">
         <path
           id="Vector"

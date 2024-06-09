@@ -1,10 +1,10 @@
 import React from 'react';
 import { IconProps } from './IconTypes';
 
-export const ThemeIcon = ({size, stroke}:IconProps) => {
+export const ThemeIcon = ({style, size, stroke}:IconProps) => {
 
   return (
-    <svg data-icon='theme-icon' width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg data-icon='theme-icon' style={style} width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="Edit / Swatches_Palette">
         <path 
           id="Vector" 
