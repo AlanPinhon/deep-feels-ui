@@ -5,19 +5,16 @@ import { Checkbox } from '../../src/components/Checkbox';
 describe('tests in <Checkbox/>', () => {
 
   test('should show the checkbox unchecked', () => { 
-    const checkboxText = 'Remind me';
     const onChangeMock = jest.fn();
 
-    const { container } = render(<Checkbox children={checkboxText} checked={false} onChange={onChangeMock}/>);
+    const { container } = render(<Checkbox checked={false} onChange={onChangeMock}/>);
 
     const checkbox = container.querySelector('input[type="checkbox"]') as HTMLInputElement;
 
     expect(checkbox.checked).toBeFalsy();
   })
 
-  test('should change the checkbox from unchecked to checked', () => { 
-    const checkboxText = 'Remind me';
-
+  test('should change the checkbox from unchecked to checked', () => {
     const TestComponent = () => {
       const [isChecked, setIsChecked] = useState(false);
 
@@ -26,7 +23,7 @@ describe('tests in <Checkbox/>', () => {
         setIsChecked(checked);
       }
 
-      return <Checkbox children={checkboxText} checked={isChecked} onChange={handleInputCheck}/>
+      return <Checkbox checked={isChecked} onChange={handleInputCheck}/>
     }
 
     const { container } = render(<TestComponent/>);
