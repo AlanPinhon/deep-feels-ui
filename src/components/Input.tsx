@@ -14,6 +14,7 @@ export type InputProps = {
   type: 'text' | 'password' | 'email';
   value: string;
   onChange: (e:ChangeEvent<HTMLInputElement>) => void;
+  style?: React.CSSProperties;
 }
 
 const ContainerInput = styled.div`
@@ -56,12 +57,13 @@ const StyledInput = styled.input<InputProps>`
   }
 `
 
-export const Input = ({className, withIcon, placeholder, type, value, onChange}:InputProps) => {
+export const Input = ({className, withIcon, placeholder, style, type, value, onChange}:InputProps) => {
   const theme = useTheme();
  
   return (
-    <ContainerInput theme={theme} className={className}>
+    <ContainerInput style={style} theme={theme} className={className}>
       <StyledInput
+        style={style}
         type={type} 
         placeholder={placeholder}
         theme={theme} 

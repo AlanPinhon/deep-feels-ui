@@ -10,6 +10,7 @@ export type ButtonProps = {
   onClick: () => void,
   variant: 'primary' | 'error' ,
   disabled?: boolean,
+  style?: React.CSSProperties;
 }
 
 const baseStyle = `
@@ -58,11 +59,11 @@ const StyledButton = styled.button<ButtonProps>`
   ${props => props.disabled && disabledStyles(props.theme)}
 `;
 
-export const Button = ({children, onClick, variant, disabled}:ButtonProps) => {
+export const Button = ({children, disabled, style, variant, onClick}:ButtonProps) => {
   const theme = useTheme();
 
   return (
-    <StyledButton theme={theme} onClick={onClick} variant={variant} disabled={disabled}>
+    <StyledButton style={style} theme={theme} onClick={onClick} variant={variant} disabled={disabled}>
       {children}
     </StyledButton>
   )
