@@ -11,7 +11,12 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
-  "keywords": ["design system", "UI components", "React", "styled-components"],
+  "keywords": [
+    "design system",
+    "UI components",
+    "React",
+    "styled-components"
+  ],
   "author": "Alan Pinhon",
   "license": "ISC",
   "publishConfig": {

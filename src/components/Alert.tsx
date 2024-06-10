@@ -9,7 +9,7 @@ import { Text } from './Text';
 import { setThemeColor } from '../theme/setThemeColor';
 
 export type AlertProps = {
-  duration: number;
+  className?: string;
   icon?: Extract<IconName, 'CheckIcon' | 'ErrorIcon'>;
   children: React.ReactNode;
   type: 'success' | 'error';
@@ -38,21 +38,11 @@ const StyledAlert = styled.div<AlertProps>`
   }
 `
 
-export const Alert = ({children, style, type, icon, duration = 5000}:AlertProps) => {
-  const theme = useTheme();
-
-  const [className, setClassName] = useState('active');
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setClassName('');
-    }, duration);
-
-    return () => clearTimeout(timer);
-  }, [duration]);  
+export const Alert = ({children, style, type, icon, className = 'active'}:AlertProps) => {
+  const theme = useTheme();  
 
   return (
-    <StyledAlert style={style} role='alert' theme={theme} type={type} duration={duration} className={className}>
+    <StyledAlert style={style} role='alert' theme={theme} type={type} className={className}>
       <Icon name={icon} size='lg' stroke={(icon === 'ErrorIcon') ? setErrorColor(theme) : setCheckColor(theme)}/>
       <Text variant='alert' color={setTextColor(theme)} style={{ marginLeft: '.5rem' }}>
         {children}
