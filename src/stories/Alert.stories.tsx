@@ -14,7 +14,6 @@ export const Success: Story = {
     children: '¡Email enviado!',
     type: 'success',
     icon: 'CheckIcon',
-    duration: 2000
   }
 }
 
@@ -23,6 +22,5 @@ export const Error: Story = {
     children: 'Ocurrió un error',
     type: 'error',
     icon: 'ErrorIcon',
-    duration: 3000
   }
 }
