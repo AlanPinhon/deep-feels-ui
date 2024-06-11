@@ -10,12 +10,6 @@ export type CheckboxProps = {
   style?: React.CSSProperties;
 }
 
-const Container = styled.div<CheckboxProps>`
-  display: flex;
-  align-items: center;
-  width: 6rem;
-`
-
 const StyledCheckbox = styled.input<CheckboxProps>`
   display: none;
 `
@@ -50,9 +44,9 @@ export const Checkbox = ({style, checked, onChange}:CheckboxProps) => {
   const theme = useTheme();
 
   return (
-    <Container style={style}>
-      <CustomCheckbox theme={theme} checked={checked}/>
-      <StyledCheckbox onChange={onChange} checked={checked} type='checkbox'/>
-    </Container>
+    <>
+      <CustomCheckbox style={style} theme={theme} checked={checked}/>
+      <StyledCheckbox style={style} onChange={onChange} checked={checked} type='checkbox'/>
+    </>
   )
 }
