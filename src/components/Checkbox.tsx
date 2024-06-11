@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 import { useTheme } from '../theme/ThemeContext';
 import styled from 'styled-components';
 import { colors } from '../theme/colors';
@@ -7,7 +7,7 @@ import { Text } from './Text';
 
 export type CheckboxProps = {
   checked?: boolean;
-  onChange?: (arg:ChangeEvent<HTMLInputElement>) => void
+  onChange?: () => void
   style?: React.CSSProperties;
 }
 
@@ -52,10 +52,15 @@ export const Checkbox = ({style, checked, onChange}:CheckboxProps) => {
 
   return (
     <Container style={style}>
-      <CustomCheckbox theme={theme} checked={checked}>
-        <StyledCheckbox onChange={onChange} type='checkbox'/>
-      </CustomCheckbox>
-      <Text color={setThemeColor(theme, colors.neutralColors.white, colors.purple[500])} variant='label'>Remind me</Text>
+      <Text
+        variant='label' 
+        color={setThemeColor(theme, colors.neutralColors.white, colors.purple[500])}
+        style={{display: "flex", alignItems: "center"}}
+      >
+        <CustomCheckbox theme={theme} checked={checked}/>
+        <StyledCheckbox onChange={onChange} checked={checked} type='checkbox'/>
+        Remind me
+      </Text>
     </Container>
   )
 }

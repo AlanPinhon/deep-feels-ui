@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useTheme } from '../theme/ThemeContext';
 import styled, { DefaultTheme } from 'styled-components';
 import { colors } from '../theme/colors';
