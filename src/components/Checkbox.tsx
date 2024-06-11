@@ -6,7 +6,9 @@ import { setThemeColor } from '../theme/setThemeColor';
 
 export type CheckboxProps = {
   checked?: boolean;
-  onChange?: () => void
+  id?:string;
+  name?: string;
+  onChange?: () => void;
   style?: React.CSSProperties;
 }
 
@@ -40,13 +42,13 @@ const CustomCheckbox = styled.span<CheckboxProps>`
   }
 `
 
-export const Checkbox = ({style, checked, onChange}:CheckboxProps) => {
+export const Checkbox = ({id, name, style, checked, onChange}:CheckboxProps) => {
   const theme = useTheme();
 
   return (
     <>
       <CustomCheckbox style={style} theme={theme} checked={checked}/>
-      <StyledCheckbox style={style} onChange={onChange} checked={checked} type='checkbox'/>
+      <StyledCheckbox style={style} id={id} name={name} onChange={onChange} checked={checked} type='checkbox'/>
     </>
   )
 }
