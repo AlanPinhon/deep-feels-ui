@@ -3,7 +3,6 @@ import { useTheme } from '../theme/ThemeContext';
 import styled from 'styled-components';
 import { colors } from '../theme/colors';
 import { setThemeColor } from '../theme/setThemeColor';
-import { Text } from './Text';
 
 export type CheckboxProps = {
   checked?: boolean;
@@ -52,15 +51,8 @@ export const Checkbox = ({style, checked, onChange}:CheckboxProps) => {
 
   return (
     <Container style={style}>
-      <Text
-        variant='label' 
-        color={setThemeColor(theme, colors.neutralColors.white, colors.purple[500])}
-        style={{display: "flex", alignItems: "center"}}
-      >
-        <CustomCheckbox theme={theme} checked={checked}/>
-        <StyledCheckbox onChange={onChange} checked={checked} type='checkbox'/>
-        Remind me
-      </Text>
+      <CustomCheckbox theme={theme} checked={checked}/>
+      <StyledCheckbox onChange={onChange} checked={checked} type='checkbox'/>
     </Container>
   )
 }
