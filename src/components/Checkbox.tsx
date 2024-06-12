@@ -1,21 +1,16 @@
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 import { useTheme } from '../theme/ThemeContext';
 import styled from 'styled-components';
 import { colors } from '../theme/colors';
 import { setThemeColor } from '../theme/setThemeColor';
-import { Text } from './Text';
 
 export type CheckboxProps = {
   checked?: boolean;
-  onChange?: (arg:ChangeEvent<HTMLInputElement>) => void
+  id?:string;
+  name?: string;
+  onChange?: () => void;
   style?: React.CSSProperties;
 }
-
-const Container = styled.div<CheckboxProps>`
-  display: flex;
-  align-items: center;
-  width: 6rem;
-`
 
 const StyledCheckbox = styled.input<CheckboxProps>`
   display: none;
@@ -47,15 +42,13 @@ const CustomCheckbox = styled.span<CheckboxProps>`
   }
 `
 
-export const Checkbox = ({style, checked, onChange}:CheckboxProps) => {
+export const Checkbox = ({id, name, style, checked, onChange}:CheckboxProps) => {
   const theme = useTheme();
 
   return (
-    <Container style={style}>
-      <CustomCheckbox theme={theme} checked={checked}>
-        <StyledCheckbox onChange={onChange} type='checkbox'/>
-      </CustomCheckbox>
-      <Text color={setThemeColor(theme, colors.neutralColors.white, colors.purple[500])} variant='label'>Remind me</Text>
-    </Container>
+    <>
+      <CustomCheckbox style={style} theme={theme} checked={checked}/>
+      <StyledCheckbox style={style} id={id} name={name} onChange={onChange} checked={checked} type='checkbox'/>
+    </>
   )
 }

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { useState } from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import { Checkbox } from '../../src/components/Checkbox';
 
@@ -18,10 +18,7 @@ describe('tests in <Checkbox/>', () => {
     const TestComponent = () => {
       const [isChecked, setIsChecked] = useState(false);
 
-      const handleInputCheck = ({target}:ChangeEvent<HTMLInputElement>) => {
-        const { checked } = target;
-        setIsChecked(checked);
-      }
+      const handleInputCheck = () => setIsChecked(!isChecked);
 
       return <Checkbox checked={isChecked} onChange={handleInputCheck}/>
     }
