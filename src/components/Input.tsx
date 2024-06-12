@@ -63,7 +63,6 @@ export const Input = ({className, withIcon, placeholder, style, type, value, onC
   return (
     <ContainerInput style={style} theme={theme} className={className}>
       <StyledInput
-        style={style}
         type={type} 
         placeholder={placeholder}
         theme={theme} 

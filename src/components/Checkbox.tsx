@@ -48,7 +48,7 @@ export const Checkbox = ({id, name, style, checked, onChange}:CheckboxProps) => 
   return (
     <>
       <CustomCheckbox style={style} theme={theme} checked={checked}/>
-      <StyledCheckbox style={style} id={id} name={name} onChange={onChange} checked={checked} type='checkbox'/>
+      <StyledCheckbox id={id} name={name} onChange={onChange} checked={checked} type='checkbox'/>
     </>
   )
 }
