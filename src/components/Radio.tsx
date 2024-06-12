@@ -10,6 +10,7 @@ export type RadioProps = {
   name?: string;
   onChange?: (arg:ChangeEvent<HTMLInputElement>) => void;
   style?: React.CSSProperties;
+  value?: string;
 }
 
 const HiddenRadio = styled.input.attrs({type: 'radio'})`
@@ -49,12 +50,12 @@ const CustomRadio = styled.span<RadioProps>`
   }
 `;
 
-export const Radio = ({id, checked, name, style, onChange}:RadioProps) => {
+export const Radio = ({id, checked, name, style, value, onChange}:RadioProps) => {
   const theme = useTheme();
 
   return (
     <CustomRadio style={style} theme={theme} checked={checked}>
-      <HiddenRadio id={id} name={name} onChange={onChange} checked={checked} />
+      <HiddenRadio id={id} name={name} value={value} onChange={onChange} checked={checked} />
     </CustomRadio>
   )
 }
