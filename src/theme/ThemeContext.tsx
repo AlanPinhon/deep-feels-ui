@@ -5,13 +5,15 @@ type ThemeContextType = {
   setTheme: Dispatch<SetStateAction<string>>;
   useDeviceTheme: boolean;
   setUseDeviceTheme: Dispatch<React.SetStateAction<boolean>>;
+  isDarkTheme: boolean;
 }
 
 export const ThemeContext = createContext<ThemeContextType>({
   theme: '' ,
   setTheme: () => {} ,
   useDeviceTheme: false,
-  setUseDeviceTheme: () => {}
+  setUseDeviceTheme: () => {}, 
+  isDarkTheme: false,
 }) ;
 
 export const useTheme = () => useContext(ThemeContext);
@@ -40,8 +42,10 @@ export const ThemeProvider = ({children}) => {
     }
   }, [useDeviceTheme]);
 
+  const isDarkTheme = theme === 'dark';
+
   return (
-    <ThemeContext.Provider value={{theme, setTheme, useDeviceTheme, setUseDeviceTheme}}>
+    <ThemeContext.Provider value={{theme, setTheme, useDeviceTheme, setUseDeviceTheme , isDarkTheme}}>
       {children}
     </ThemeContext.Provider>
   )
