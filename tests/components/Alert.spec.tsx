@@ -15,6 +15,7 @@ describe('tests in <Alert/>', () => {
         children={alertMsg}
         type='success'
         icon='CheckIcon'
+        mounted
       />
     );
     
@@ -40,6 +41,7 @@ describe('tests in <Alert/>', () => {
         children={alertMsg}
         type='error'
         icon='ErrorIcon'
+        mounted
       />
     );
     

@@ -29,6 +29,6 @@ export type IconProps = {
   size: keyof typeof iconSizes;
   background?: boolean;
   fill?: string;
-  stroke: string;
+  stroke?: string;
   style?: React.CSSProperties;
 }
