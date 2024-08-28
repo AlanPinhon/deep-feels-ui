@@ -26,7 +26,7 @@ const ContainerInput = styled.div`
   color: ${({theme}) => setThemeColor(theme, colors.neutralColors.white, colors.purple[500])};
   background-color: ${({theme}) => setThemeColor(theme, colors.lightPurple[700], colors.neutralColors.white)};
   border: 1px solid ${({theme}) => setThemeColor(theme, colors.neutralColors.white, colors.lightPurple[700])};
-  border-radius: ${spaces.sm};
+  border-radius: ${spaces.xs};
   filter: drop-shadow(2px 2px 4px ${colors.neutralColors.shadow});
 
   &.error {
