@@ -45,7 +45,7 @@ export const Alert = ({children, style, type, icon, mounted}:AlertProps) => {
 
   return (
     <StyledAlert style={style} role='alert' theme={theme} type={type}>
-      <Icon name={icon} size='lg' stroke={iconColor}/>
+      <Icon name={icon} size='sm' stroke={iconColor}/>
       <Text variant='alert' color={colors.purple[500]} style={{ marginLeft: '.5rem' }}>
         {children}
       </Text>

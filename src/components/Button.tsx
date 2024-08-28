@@ -16,6 +16,8 @@ export type ButtonProps = {
 const baseStyle = `
   font-family: ${font.sans};
   font-size: ${fontSizes.p_lg};
+  line-height: ${fontSizes.p_lg};
+  letter-spacing: .05rem;
   font-weight: ${fontWeights.bold};
   border-radius: ${spaces.sm};
   padding: ${spaces.md} ${spaces.lg};

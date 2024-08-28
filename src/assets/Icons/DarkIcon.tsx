@@ -1,4 +1,4 @@
-import React from 'react';;
+import React from 'react';
 import { IconProps } from './IconTypes';
 
 export const DarkIcon = ({style, size, stroke}:IconProps) => {

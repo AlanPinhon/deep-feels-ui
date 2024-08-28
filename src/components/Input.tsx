@@ -26,7 +26,7 @@ const ContainerInput = styled.div`
   color: ${({theme}) => setThemeColor(theme, colors.neutralColors.white, colors.purple[500])};
   background-color: ${({theme}) => setThemeColor(theme, colors.lightPurple[700], colors.neutralColors.white)};
   border: 1px solid ${({theme}) => setThemeColor(theme, colors.neutralColors.white, colors.lightPurple[700])};
-  border-radius: ${spaces.sm};
+  border-radius: ${spaces.xs};
   filter: drop-shadow(2px 2px 4px ${colors.neutralColors.shadow});
 
   &.error {
@@ -42,6 +42,7 @@ const StyledInput = styled.input<InputProps>`
   width: 21.75rem;
   font-family: ${font.sans};
   font-size: ${fontSizes.p_sm};
+  letter-spacing: .025rem;
   font-weight: ${fontWeights.light};
   color: ${({theme}) => setThemeColor(theme, colors.neutralColors.white, colors.purple[500])};
   background-color: ${({theme}) => setThemeColor(theme, colors.lightPurple[700], colors.neutralColors.white)};
@@ -69,7 +70,7 @@ export const Input = ({className, withIcon, placeholder, style, type, value, onC
         value={value} 
         onChange={onChange}
       />
-      {withIcon && <Icon name={withIcon} size='sm' stroke={setThemeColor(theme, colors.neutralColors.white, colors.purple[500])}/>}
+      {withIcon && <Icon name={withIcon} size='xs' stroke={setThemeColor(theme, colors.neutralColors.white, colors.purple[500])}/>}
     </ContainerInput>
   )
 }
