@@ -70,7 +70,7 @@ export const Input = ({className, withIcon, placeholder, style, type, value, onC
         value={value} 
         onChange={onChange}
       />
-      {withIcon && <Icon name={withIcon} size='sm' stroke={setThemeColor(theme, colors.neutralColors.white, colors.purple[500])}/>}
+      {withIcon && <Icon name={withIcon} size='xs' stroke={setThemeColor(theme, colors.neutralColors.white, colors.purple[500])}/>}
     </ContainerInput>
   )
 }
