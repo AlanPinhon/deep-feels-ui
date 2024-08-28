@@ -28,44 +28,54 @@ const element = {
 const variantStyles = {
   h1: `
     font-size: ${fontSizes.h1};
+    line-height: ${fontSizes.h1};
     font-weight: ${fontWeights.bold};
   `,
   h2: `
     font-size: ${fontSizes.h2};
+    line-height: ${fontSizes.h2};
     font-weight: ${fontWeights.bold};
   `,
   h3: `
     font-size: ${fontSizes.h3};
+    line-height: ${fontSizes.h3};
     font-weight: ${fontWeights.bold};
   `,
   lg: `
     font-size: ${fontSizes.p_lg};
+    line-height: ${fontSizes.p_lg};
     font-weight: ${fontWeights.regular};
   `,
   md: `
     font-size: ${fontSizes.p_md};
+    line-height: ${fontSizes.p_md};
     font-weight: ${fontWeights.light};
   `,
   sm: `
     font-size: ${fontSizes.p_sm};
+    line-height: ${fontSizes.p_sm};
     font-weight: ${fontWeights.light};
   `,
   xs: `
     font-size: ${fontSizes.p_xs};
+    line-height: ${fontSizes.p_xs};
     font-weight: ${fontWeights.light};
   `,
   label: `
     font-size: ${fontSizes.p_sm};
+    line-height: ${fontSizes.p_sm};
     font-weight: ${fontWeights.book};
   `,
   alert: `
     font-size: ${fontSizes.alert};
+    line-height: ${fontSizes.alert};
     font-weight: ${fontWeights.book};
   `,
 }
 
 const StyledText = styled.p<TextProps>`
   font-family: ${font.sans};
+  letter-spacing: .05rem;
   color: ${(({theme, color}) => setThemeColor(theme, colors.neutralColors.white, color))};
   ${({ variant }) => variant && variantStyles[variant]}
 `

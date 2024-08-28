@@ -42,6 +42,7 @@ const StyledInput = styled.input<InputProps>`
   width: 21.75rem;
   font-family: ${font.sans};
   font-size: ${fontSizes.p_sm};
+  letter-spacing: .025rem;
   font-weight: ${fontWeights.light};
   color: ${({theme}) => setThemeColor(theme, colors.neutralColors.white, colors.purple[500])};
   background-color: ${({theme}) => setThemeColor(theme, colors.lightPurple[700], colors.neutralColors.white)};
