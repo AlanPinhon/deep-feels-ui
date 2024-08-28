@@ -1,6 +1,6 @@
 {
   "name": "@alanpinhon/deep-feels-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A design system for Deep Feels UI components.",
   "main": "build/index.js",
   "scripts": {
