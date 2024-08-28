@@ -9,11 +9,11 @@ export const spaces = {
 }
 
 export const iconSizes = {
-  xs: "0.75rem",
-  sm: "1rem",
-  md: "1.25rem",
-  lg: "1.5rem",
-  xl: "1.75rem"
+  xs: "1rem",
+  sm: "1.5rem",
+  md: "2rem",
+  lg: "3rem",
+  xl: "6rem"
 };
 
 export const font = {
